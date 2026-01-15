@@ -108,3 +108,30 @@ To create a class you need to be careful of those things :
 + `private`: The default access specifier, only accessible inside the class;  
 + `public`: Accessible from outside the class;  
 + `protected`: Private, but accessible by the child classes;  
+
+### Constructor
+The constructor is a **spacial method** inside the class that :   
++ Has the same name as the class;  
++ Has no return type;  
++ Called automatically when creating an object;  
++ Initializes the object into a valid state, and the state of an object means the value of all its data members at a given moment;  
+
+#### Default Constructor : 
+```CPP
+animal()
+{
+	age = 0;
+}
+```
+if you create a constructor, c++ does not auto-create the default one;  
+
+#### Parameterized constructors :  
+```CPP
+Animal(int a, std::string n)
+{
+	age  = a;
+	name = n;
+}
+```
+
+Usage :  `Animal dog(3, "Frex");`  
