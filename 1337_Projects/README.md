@@ -135,3 +135,55 @@ Animal(int a, std::string n)
 ```
 
 Usage :  `Animal dog(3, "Frex");`  
+
+#### Initialization List  
+Is a specific syntax used in a constructor's definition to initialize a class's data members before the constructor body begin execution. 
+syntax :  
+```cpp
+Animal (int a) : age(a){}
+```
+
++ The initialization list : `: age(a) ` is for initializing members;  
++ The `{}` body is for the constructor logic;  
+
+**Order of initialization :**  
+Members are initialized in the order they are Declared in the Class, not the order in the initialization list.   
+```cpp
+class Test
+{
+	int x;
+	int y;
+	
+	public:
+		Test() : y(2), x(1) {}
+};
+```
+`x` initialized first by `1`; 
+`y` initialized second by `2`;  
+
+Example where the order matters :  
+```cpp
+class Test
+{
+	int x;
+	int y;
+	
+	public:
+		Test() : y(x), x(10) {}
+};
+```
+Here : 
++ `x` initialized first by garbage value;  
++ `y` initialized using the `x` garbage value;  
++ `x` gets `10`;  
+**Correct form :**  
+```cpp
+class Test
+{
+	int x;
+	int y;
+	
+	public:
+		Test () : x(10), y(x) {}
+};
+```
