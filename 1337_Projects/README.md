@@ -74,4 +74,37 @@ int main ()
 }
 ```
 
+## OOP
+(Object-Orientation Programming)! On C language the program was based on functions and separate data, here on C++ language we organize the program based on **objects** that own their data and provide functions that operate on that data.  
 
+### Object
+Its like a package or a collection that contain data (variables) and behavior (functions that use or modify that data);  
+To create an object we need first to create a class which act as a `blue-print`
+
+### Classes
+Class is a new type created as a **blueprint** that contain variables and methods (function inside the class).  
+Think of the class as the **design** of the car, and the object is the actual car built from that design.  
+The blueprint of the class :  
+```CPP
+class Animal
+{
+	public:
+		int         age;
+		std::string name;
+		
+		void speak()
+		{
+			std::cout << "sdjalf" << sdt::endl;
+		}
+};
+```
+
+To create a class you need to be careful of those things :   
++ `class Animal`: The class name with a capital;  
++ `{}` : Class body;  
++ `;`: required at the end of the class;  
++ `variables` : A scope of the class variables;  
++ `functions`: The actions the object of this class can do;  
++ `private`: The default access specifier, only accessible inside the class;  
++ `public`: Accessible from outside the class;  
++ `protected`: Private, but accessible by the child classes;  
