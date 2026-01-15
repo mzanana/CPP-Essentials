@@ -193,8 +193,55 @@ class Test
 		Test () : x(10), y(x) {}
 };
 ```
+
+### Overloaded Constructors  
+They are multiple constructors in the same class with different parameter lists, and that for :  
++ Allowing objects to be created in different ways;  
++ Having the same class name but different parameters;  
++ Flexibility.  
+
+**IMPORTANT !**  
+Two constructors must be different in the number or the types of the parameters;  
+We cannot have two constructors with exactly the same signature;  
+
+```cpp
+
+class Animal
+{
+	private:
+		int age;
+		std::string name;
+		
+	public:
+		Animal() : name("unknown"), age(0) {}
+		Animal(const std::string& name) : name(name) {}
+		Animal(int age) : age (age) {}
+		Animal(const std::string& name, int age) : name(name), age(age)
+};
+
+```
+So we can create now animal object with only age given, name only, name and age or even nothing;  
+
 ### Encapsulation 
-Called the heart of the **OOP**, it protect the logic and prevent misuse;  
+Called the heart of the **OOP**, it protect the logic and prevent misuse, the encapsulation principle is to hide the internal data and expose only what is necessary;  
+C++ implements encapsulation using access specifiers :  
++ **private :** To hide and being sure we can't modify to the declared members outside the class;  
++ **public :** when providing public getters and setters we are controlling the access which is part of the encapsulation.  
+
+**Why we use them ?**  
+Imagine we have a class of BankAccount and the balance attribute is public, inside the main function code everyone could modify the balance to whatever he want, or it can be invalid because of no control.  
+```cpp
+class BankAccount
+{
+	public:
+		int balance;
+};
+
+BankAccount bank1; 
+bank1.balance = -9999;
+```
+
+So the solution is the next : 
 ```cpp
 class BankAccount
 {
