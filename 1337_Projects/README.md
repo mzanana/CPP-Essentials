@@ -262,3 +262,31 @@ class BankAccount
 ```
 
 Here the user cannot change the balance directly, but using the line `account.deposit(500);` he can;  
+
+
+### getters and setters
+They are functions used to make a private attribute readable or writable from outside the class :  
+#### Getter
+A function that return the value of a private member; 
+**Syntax :**  
+```cpp
+ReturnType getMemberName() const
+{
+	return (memberVariable);
+}
+```
++ `ReturnType` : the type of the variable we want to access;  
++ `const`: Used to ensure the getter does not modify the object (optional but recommonded).  
+
+#### Setter
+A function that change or updates the value of a private member.  
+**Syntax :**  
+```cpp
+void setAge(int a)
+{
+	if (a >= 0)
+		age = a;
+	else
+		age = 0;
+}
+```
