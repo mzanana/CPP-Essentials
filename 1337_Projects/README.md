@@ -125,12 +125,18 @@ animal()
 ```
 if you create a constructor, c++ does not auto-create the default one;  
 
+####  this->
+`this` is a hidden pointer inside every non-static member function. it points to the current object.  
+It is not necessary to use it in some cases, but in other cases you should use it :  
++ **Optional to use `this->` :** When there is no name conflict, the compiler already knows the member from the constructor variable;  
++ **Necessary :** There are many advanced cases like fluent interface, templates or dependent names , but at our current learning phase `this->` is necessary when the parameter has the same name as the member.  
+
 #### Parameterized constructors :  
 ```CPP
-Animal(int a, std::string n)
+Animal(int a, std::string name)
 {
 	age  = a;
-	name = n;
+	this->name = name;  //this->name is the attribute name, and the name after equal sign is the constructor parameter
 }
 ```
 
