@@ -187,3 +187,25 @@ class Test
 		Test () : x(10), y(x) {}
 };
 ```
+### Encapsulation 
+Called the heart of the **OOP**, it protect the logic and prevent misuse;  
+```cpp
+class BankAccount
+{
+	private:
+		int balance;
+		
+	public:
+		void deposit(int amount)
+		{
+			if (amount > 0)
+				balance += amount;
+		}
+		void getBalance() const
+		{
+			return (balance);
+		}
+};
+```
+
+Here the user cannot change the balance directly, but using the line `account.deposit(500);` he can;  
