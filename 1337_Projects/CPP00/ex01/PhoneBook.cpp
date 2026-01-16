@@ -10,9 +10,9 @@ std::string PhoneBook::ReadInput(std::string prompt, int mode)
     while (true)
     {
         std::cout << prompt;
-        if (!std::getline(std::cin, input) || std::cin.eof())
+        if (!std::getline(std::cin, input))
         {
-            std::cout << "\nTerminating input... EOF" << std::endl;
+            std::cout << "\n...EOF" << std::endl;
             exit(0); 
         }
         if (input.empty())
