@@ -6,6 +6,7 @@ std::string PhoneBook::ReadInput(std::string prompt, int mode)
 {
     std::string input;
 	size_t i;
+	size_t k;
 
     while (true)
     {
@@ -17,7 +18,22 @@ std::string PhoneBook::ReadInput(std::string prompt, int mode)
         }
         if (input.empty())
             continue;
-
+		bool hasNonSpace = false;
+		k = 0;
+		while (k < input.size())
+		{
+			if (!std::isspace(input[k]))
+			{
+				hasNonSpace = true;
+				break;
+			}
+			k++;
+		}
+		if (!hasNonSpace)
+		{
+			std::cout << "Invalid input. Please try again." << std::endl;
+			continue;
+		}
         bool isValid = true;
 		i = 0;
         while (i < input.size())
@@ -63,15 +79,13 @@ void PhoneBook::SearchContacts() {
         return;
     }
 
-	std::cout << " -------------------------------------------\n";
-	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
-	std::cout << " -------------------------------------------\n";
-
+	std::cout << " -------------------------------------------\n";	
     std::cout << "|" << std::setw(10) << "Index" << "|";
     std::cout << std::setw(10) << "First Name" << "|";
     std::cout << std::setw(10) << "Last Name" << "|";
     std::cout << std::setw(10) << "Nickname" << "|" << std::endl;
-
+	std::cout << " -------------------------------------------\n";
+	
     for (int i = 0; i < this->nbr; i++) {
 		std::cout << "|" << std::setw(10) << i;
 		std::cout << "|" << std::setw(10) << formatColumn(contacts[i].getFirstName());
@@ -90,18 +104,23 @@ void PhoneBook::PrintContact() {
 
     std::cout << "Enter index to display details: ";
     if (!std::getline(std::cin, input))
-        exit(0);
-    if (input.length() == 1 && std::isdigit(input[0])) {
+	{
+		std::cout << "\n...EOF";
+		exit(0);
+	}   
+    if (input.length() == 1 && std::isdigit(input[0]))
+	{
         indexChoice = input[0] - '0';
-        if (indexChoice < this->nbr) {
+        if (indexChoice < this->nbr)
+		{
             std::cout << "First Name: " << contacts[indexChoice].getFirstName() << std::endl;
             std::cout << "Last Name: " << contacts[indexChoice].getLastName() << std::endl;
             std::cout << "Nickname: " << contacts[indexChoice].getNickName() << std::endl;
             std::cout << "Phone: " << contacts[indexChoice].getPhoneNumber() << std::endl;
             std::cout << "Secret: " << contacts[indexChoice].getDarkestSecret() << std::endl;
-        } else {
-            std::cout << "Error: Index out of range." << std::endl;
         }
+		else
+            std::cout << "Error: Index out of range." << std::endl;
     }
 	else
         std::cout << "Invalid index!" << std::endl;
