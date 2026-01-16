@@ -8,7 +8,7 @@ int main (int ac, char **av)
 
 	i = 1;
 	if(ac == i)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n" << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
 		while (av[i])
@@ -21,7 +21,7 @@ int main (int ac, char **av)
 			}
 			i++;
 		}
-		std::cout << '\n';
 	}
+	std::cout << '\n';
 	return (0);
 }
