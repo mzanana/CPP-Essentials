@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 int main (int ac, char **av)
 {
@@ -20,7 +21,7 @@ int main (int ac, char **av)
 			}
 			i++;
 		}
-		std::cout << std::endl;
+		std::cout << '\n';
 	}
 	return (0);
 }
