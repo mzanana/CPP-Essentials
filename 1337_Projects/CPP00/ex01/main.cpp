@@ -20,8 +20,8 @@ int main()
 			book.SearchContacts();
         else if (command == "EXIT")
             break;
-        else if (!command.empty())
-            continue;
+        else
+			std::cout << "Invalid Command!\n"; 
     }
     return (0);
 }
