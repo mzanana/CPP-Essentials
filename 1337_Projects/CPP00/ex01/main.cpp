@@ -11,7 +11,7 @@ int main()
         
         if (!std::getline(std::cin, command))
         {
-            std::cout << "\n...EOF" << std::endl;
+            std::cout << "\n...EOF\n";
             break;
         }
         if (command == "ADD")

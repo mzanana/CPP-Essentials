@@ -10,11 +10,11 @@ class PhoneBook
         int nbr;
         int index;
 		std::string ReadInput(std::string prompt, int mode);
+        void PrintContact();
 
     public:
         PhoneBook();
         void AddContact();
-        void PrintContact();
         void SearchContacts();
 };
 
