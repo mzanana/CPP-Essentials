@@ -1,4 +1,4 @@
-NAME = Megaphone
+NAME = megaphone
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Wall -std=c++98
