@@ -5,6 +5,7 @@ PhoneBook::PhoneBook() : nbr(0), index(0) {}
 std::string PhoneBook::ReadInput(std::string prompt, int mode)
 {
     std::string input;
+	size_t i;
 
     while (true)
     {
@@ -18,14 +19,15 @@ std::string PhoneBook::ReadInput(std::string prompt, int mode)
             continue;
 
         bool isValid = true;
-        for (size_t i = 0; i < input.size(); i++)
+		i = 0;
+        while (i < input.size())
         {
             if (mode == 1 && !std::isalpha(input[i]) && !std::isspace(input[i]))
                 isValid = false;
             else if (mode == 2 && !std::isdigit(input[i]))
                 isValid = false;
+			i++;
         }
-
         if (isValid && (mode != 2 || input.size() < 16))
             return input;
         

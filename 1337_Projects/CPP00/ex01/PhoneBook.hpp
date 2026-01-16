@@ -14,8 +14,8 @@ class PhoneBook
     public:
         PhoneBook();
         void AddContact();
-        void PrintContacts();
-        void SearchContact();
+        void PrintContact();
+        void SearchContacts();
 };
 
 #endif
