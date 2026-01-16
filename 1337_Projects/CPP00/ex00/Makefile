@@ -20,4 +20,4 @@ fclean: clean
 	rm -rf $(NAME)
 re: fclean all
 
-.PHONY: all NAME clean fclean re
+.PHONY: clean
