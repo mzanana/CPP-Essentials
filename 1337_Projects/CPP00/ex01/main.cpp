@@ -16,8 +16,8 @@ int main()
         }
         if (command == "ADD")
 			book.AddContact();
-        // else if (command == "SEARCH")
-		// 	book.SearchContacts();
+        else if (command == "SEARCH")
+			book.SearchContacts();
         else if (command == "EXIT")
             break;
         else if (!command.empty())
