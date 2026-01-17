@@ -2,7 +2,6 @@
 
 Zombie::Zombie(){}
 
-
 std::string Zombie::getName(void)
 {
     return (this->name);
