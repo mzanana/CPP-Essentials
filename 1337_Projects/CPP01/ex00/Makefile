@@ -3,8 +3,8 @@ NAME = braiiiiiiinnnzzzz
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = 
-HDR = 
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+HDR = Zombie.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
