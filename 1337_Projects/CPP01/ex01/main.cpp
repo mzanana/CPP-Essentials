@@ -3,12 +3,10 @@
 int main()
 {
     int i = 0;
-    int N = 2;
+    int N = 4;
     Zombie *zomHeap = zombieHorde(N, "heap");
 
     while (i < N)
-    {
         zomHeap[i++].announce();
-    }
     delete[] zomHeap;
 }
