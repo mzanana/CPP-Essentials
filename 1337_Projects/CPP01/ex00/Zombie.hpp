@@ -8,13 +8,11 @@ class Zombie
     private:
         std::string name;
     public:
+        void setName(std::string name);
         std::string getName(void);
         void announce(void);
-        Zombie(std::string name) : name(name) {};
-        ~Zombie()
-        {
-            std::cout << this->name << " Destroyed!\n";
-        };
+        Zombie(std::string name);
+        ~Zombie();
 };
 
 Zombie* newZombie(std::string name);
