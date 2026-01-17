@@ -2,9 +2,13 @@
 
 int main()
 {
-    Zombie *zomHeap = newZombie("heap");
+    int i = 0;
+    int N = 2;
+    Zombie *zomHeap = zombieHorde(N, "heap");
 
-    zomHeap->announce();
-    randomChump("Stacker");
-    delete zomHeap;
+    while (i < N)
+    {
+        zomHeap[i++].announce();
+    }
+    delete[] zomHeap;
 }
