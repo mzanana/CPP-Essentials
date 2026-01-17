@@ -1,9 +1,9 @@
-NAME = braiiiiiiinnnzzzz
+NAME = moar
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = main.cpp zombieHorde.cpp Zombie.cpp
 HDR = Zombie.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
