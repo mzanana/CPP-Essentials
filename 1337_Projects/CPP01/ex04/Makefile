@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
-%.o:%.cpp $(HDR)
+%.o:%.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
