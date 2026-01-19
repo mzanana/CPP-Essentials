@@ -6,7 +6,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp zombieHorde.cpp Zombie.cpp
 HDR = Zombie.hpp
 
-OBJ = $(SRC:%.cpp=%.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
