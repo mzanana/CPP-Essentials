@@ -6,7 +6,7 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Try : ./realsed \"filename\" \"s1\" \"s2\"\n";
+		std::cerr << "Valid input example : ./realsed \"filename\" \"s1\" \"s2\"\n";
 		return (1);
 	}
 	std::string filename = av[1];
@@ -15,13 +15,13 @@ int main(int ac, char **av)
 
 	if (s1.empty())
 	{
-		std::cerr << "Second argument can't be empty!!\n";
+		std::cerr << "Element you wanna replace can't be empty!\n";
 		return (1);
 	}
 	std::ifstream input (filename.c_str());
 	if (!input)
 	{
-		std::cerr << "Error while reading from the \"filename\"\n";
+		std::cerr << "Error while reading from " << filename << "! Check if the file exist. If yes, then a system error occur\n";
 		return (1);
 	}
 	std::string content;
@@ -38,6 +38,18 @@ int main(int ac, char **av)
 		std::cerr << "Creation .replace file failed \n";
 		return (1);
 	}
-	
+	std::string result;
+	size_t pos = 0;
+	size_t found;
+	while ((found = content.find(s1, pos)) != std::string::npos)
+	{
+		result.append(content, pos, found - pos);
+		result.append(s2);
+		pos = found + s1.length();
+	}
+	result.append(content, pos, std::string::npos);
+	output << result;
+	input.close();
+	output.close();
 	return (0);
 }
