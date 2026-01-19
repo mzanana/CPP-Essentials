@@ -11,10 +11,10 @@ class Harl
 		void info(void);
 		void warning(void);
 		void error(void);
+		typedef void (Harl::*harlComp)();
 
 	public:
 		void complain(std::string level);
-		typedef void (Harl::*harlComp)();
 };
 
 #endif
