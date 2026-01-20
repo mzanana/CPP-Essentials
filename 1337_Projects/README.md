@@ -327,3 +327,73 @@ The default constructor is a function that runs when a new object is created and
 + `const` members must be initialized and we can't assign them later;   
 + References also should be initialized and not be null or left it empty;    
 + Members are initialized in the order they are declared in the class.  
+
+
+### Copy Constructor  
+It create a new object as a copy of an existing one without any conflict,  if we didn't implement our copy constructor the compiler gonna call its own one which just copy all the members from the existing object to the new object, for simple variables like integers that works fine, but for pointers that gonna cause the dangling pointers we talk about previously, because the new pointer gonna point to the original object pointer element pointed to.   
+
+syntax :  
+`ClassName(const ClassName& other)`  
+
++ Like all constructors it must match the class name and has no return type;  
++ Reference, help us to avoid an infinite loop, where this infinite loop happens ? let me show you. Lets sat we gonna create a copy of an existing object and the copy constructor argument is passed by value, to create this value the compiler gonna need to make a copy of the passed object, and how the compiler make a copy of an object, it just call the copy constructor, again and again and again until we face a stack overflow;   
++ Const means copying from a const objects is allowed, and also to make sure that we don't modify the original object.    
+
+Example of the copy constructor : 
+```cpp
+
+#include <iostream>
+
+class ClassName
+{
+	private:
+		int x;
+	public:
+		int getX() const
+		{
+			return (this->x);
+		}
+		ClassName(int nbr):x(nbr){}
+		ClassName (const ClassName& other)
+		{
+			this->x = other.getX();
+		}
+};
+
+int main()
+{
+	ClassName A(17);
+	ClassName B(A);
+	std::cout << B.getX();
+}
+```
+
+
+And now lets make an complex example of a pointer that exist inside the class  
+```cpp
+	#include <iostream>
+	#include <cstring>
+	
+	class Student
+	{
+		private:
+			char *name;
+		public:
+			Student() : name(NULL){}
+			Student(const Student& other)
+			{
+				if (other.name)
+				{
+					int len = std::strlen(other.name);
+					this->name = new char[len + 1];
+					std::strcpy(this->name, other.name);
+				}
+				else
+					this->name = NULL;
+			}
+			~Student()
+			{
+				delete[] name;
+			}
+	};
+```
