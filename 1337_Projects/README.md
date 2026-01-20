@@ -320,3 +320,10 @@ If a class manages resources (pointers, file handles, sockets, etc.) the default
 + **Deep copying :** The new object is created by copying all the variable values and allocating separate memory for dynamically allocated variables, both the original and copied objects store their data in different memory locations,  while changing one it doesn't affect the other one.  
 + **Dangling pointers :** Is a pointer that point to a memory location that has been deallocated or is not longer valid, accessing or dereferencing a dangling pointer results in undefined behavior.  
 
+### Default Constructor
+The default constructor is a function that runs when a new object is created and declared without parameters,  the important thing it did is making sure all the members are initialized. Initialization is not the same as assignment :    
++ Initialization happens **before** the constructor body runs;    
++ Assignment happens **inside** the constructor body.    
++ `const` members must be initialized and we can't assign them later;   
++ References also should be initialized and not be null or left it empty;    
++ Members are initialized in the order they are declared in the class.  
