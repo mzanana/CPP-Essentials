@@ -314,3 +314,9 @@ If a class manages resources (pointers, file handles, sockets, etc.) the default
 + Do Shallow copying;
 + Leads to double deletes, memory leaks or dangling pointers.  
 
+#### Shallow copying, deep copying and dangling pointers
+
++ **Shallow copying :** While copying an object without the copy constructor or the assignment operator, all variable values are copied, but dynamically allocated memory addresses are shared between objects, also both objects point to the same heap memory, so changes made through one object affect the other;  
++ **Deep copying :** The new object is created by copying all the variable values and allocating separate memory for dynamically allocated variables, both the original and copied objects store their data in different memory locations,  while changing one it doesn't affect the other one.  
++ **Dangling pointers :** Is a pointer that point to a memory location that has been deallocated or is not longer valid, accessing or dereferencing a dangling pointer results in undefined behavior.  
+
