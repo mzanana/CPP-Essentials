@@ -290,3 +290,27 @@ void setAge(int a)
 		age = 0;
 }
 ```
+
+# To_do later (easy stuff)
++ Memory basics (dynamically and statically);  
++ References and Pointers;  
++ File streams;  
++ Pointer to member functions;  
+
+
+
+# Orthodox Canonical, Operator overloading, fixed and floating points
+
+## Orthodox Canonical Class Form
+Its a standard set of rules that ensure the classes behave well and correct while copying its object, assigning it or destroying it.  
+The form define **four** members :  
++ Default constructor;  
++ Copy constructor;  
++ Copy assignment operator;  
++ Destructor. 
+
+### Why we need to use it 
+If a class manages resources (pointers, file handles, sockets, etc.) the default implementation provided by the compiler make some bad behaviors like :  
++ Do Shallow copying;
++ Leads to double deletes, memory leaks or dangling pointers.  
+
