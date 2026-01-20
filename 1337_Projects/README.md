@@ -397,3 +397,14 @@ And now lets make an complex example of a pointer that exist inside the class
 			}
 	};
 ```
+
+### Assignment Operator
+The difference between the copy constructor and the assignment operator is that the copy constructor build the object from scratch, create it and initialize it, while the assignment operator happen between two existing object, we just want to assign one object values to other one, and of course the syntax is different from the copy constructor.  
+
+**Syntax :**  
+```Cpp
+ClassName& operator=(const ClassName& right)
+```
++ We return `ClassName&` so it return a reference of the current object `(*this)`;  
++ `operator=` This is a special c++ keyword that tells the compiler that we gonna redefine the `=` operator;  
++ `const ClassName& right` we call const so we can accept also the const objects, and the reference because we gonna take a long time and it gonna be inefficient, lets say you want to make `a = b`, if the assignment didn't have a reference then it gonna make a copy which gonna create a new copy `b => right` and also we are copying for the second time from `right => a`;   That's why reference is important, so to pass directly the right object; 
