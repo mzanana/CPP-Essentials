@@ -408,3 +408,32 @@ ClassName& operator=(const ClassName& right)
 + We return `ClassName&` so it return a reference of the current object `(*this)`;  
 + `operator=` This is a special c++ keyword that tells the compiler that we gonna redefine the `=` operator;  
 + `const ClassName& right` we call const so we can accept also the const objects, and the reference because we gonna take a long time and it gonna be inefficient, lets say you want to make `a = b`, if the assignment didn't have a reference then it gonna make a copy which gonna create a new copy `b => right` and also we are copying for the second time from `right => a`;   That's why reference is important, so to pass directly the right object; 
+
+Example :
+```cpp
+#include <iostream> 
+
+class SmartD
+{
+	private:
+		int id;
+		bool ison;
+		
+	public:
+		SmartD();
+		SmartD(int id) : id(id){}
+		SmartD(const SmartD& other)
+		{
+			//copy constructor
+		}
+		SmartD& operator=(const SmartD& right)
+		{
+			if (this != right)
+			{
+				this->id = right.id;
+				this->ison = right.ison;
+			}
+			return (*this);
+		}
+}
+```
