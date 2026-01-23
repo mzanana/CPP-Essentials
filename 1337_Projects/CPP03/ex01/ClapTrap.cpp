@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap() : name("! XXXXXXXX !"),  HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
-	std::cout << "ClapTrap Default Constructor Called of " << name << "\n";
+	std::cout << "ClapTrap Default Constructor Called\n";
 }
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
-	std::cout << "ClapTrap Parametred Constructor Called of " << name << "\n";
+	std::cout << "ClapTrap Parametred Constructor Called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -31,7 +31,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& right)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap Destructor Called of " << name << "\n";
+	std::cout << "ClapTrap Destructor Called\n";
 }
 
 void ClapTrap:: attack(const std::string& target)
