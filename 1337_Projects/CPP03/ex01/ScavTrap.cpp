@@ -36,7 +36,10 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << name << " is now in Gate keeper mode!\n";
+	if (HitPoints > 0)
+		std::cout << "ScavTrap " << name << " is now in Gate keeper mode!\n";
+	else
+		std::cout << "ScavTrap " << name << " is DEAD\n";
 }
 
 void ScavTrap:: attack(const std::string& target)
