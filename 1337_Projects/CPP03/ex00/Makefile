@@ -1,4 +1,4 @@
-NAME = open
+NAME = claptrap
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
