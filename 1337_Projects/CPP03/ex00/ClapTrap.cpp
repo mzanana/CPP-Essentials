@@ -5,7 +5,7 @@ ClapTrap::ClapTrap() : name("! XXXXXXXX !"),  HitPoints(10), EnergyPoints(10), A
 	std::cout << "Default Constructor Called\n";
 }
 
-ClapTrap::ClapTrap(std::string name) : name(name), HitPoints(10), EnergyPoints(10), AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name) : name(name), HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
 	std::cout << "Parametred Constructor Called\n";
 }
@@ -41,28 +41,27 @@ void ClapTrap:: attack(const std::string& target)
 		if (!EnergyPoints && HitPoints)
 			std::cout << name << " Exhausted!\n";
 		else
-			std::cout << name << " Is DEAD!\n";
+			std::cout << name << " is DEAD!\n";
+		return ;
 	}
-	else
-	{
-		EnergyPoints--;
-		std::cout << name << " attacks " << target << ", causing " << AttackDamage << " points of damage!\n";
-	}
+	EnergyPoints--;
+	std::cout << name << " attacks " << target << ", causing " << AttackDamage << " points of damage!\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (HitPoints - amount > 0)
+	if (!HitPoints)
+		std::cout << name << " is DEAD\n";
+	else if (HitPoints > (int)amount)
 	{
-		std::cout << name << " take a damage of " << amount << " points\n";
 		HitPoints -= amount;
+		std::cout << name << " takes " << amount << " damage!\n";
 	}
 	else
 	{
-		std::cout << name << "is DEAD\n";
 		HitPoints = 0;
+		std::cout << name << " takes massive damage and Dies\n";
 	}
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -70,15 +69,24 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (!EnergyPoints || !HitPoints)
 	{
 		if (!EnergyPoints && HitPoints)
-			std::cout << name << " Is Exhausted because the lack of his energy points\n";
-		else if (EnergyPoints && !HitPoints)
-			std::cout << name << " Is DEAD because the lack of the hit points\n";
+			std::cout << name << " Exhausted!\n";
 		else
-			std::cout << name << "Can't repair himself because of the lack of the energy points and the hit points\n";
+			std::cout << name << " is DEAD!\n";
+		return ;
 	}
 	else
 	{
-		HitPoints += amount;
-		EnergyPoints--;
+		if ((HitPoints + amount) > 10)
+		{
+			std::cout << "Maximum HitPoints is 10\n";	
+			HitPoints = 10;
+			EnergyPoints--;
+		}
+		else 
+		{
+			HitPoints += amount;
+			std::cout << name << " reagain " << amount << " hit points\n";
+			EnergyPoints--;
+		}
 	}
 }
