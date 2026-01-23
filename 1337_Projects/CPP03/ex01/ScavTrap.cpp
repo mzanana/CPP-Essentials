@@ -10,7 +10,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Parametred Constructor Called\n";
+	std::cout << "ScavTrap Parameterized Constructor Called\n";
 	HitPoints = 100;
 	EnergyPoints = 50;
 	AttackDamage = 20;
@@ -26,21 +26,30 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& right)
 {
 	std::cout << "ScavTrap Copy Assignment Operator Called\n";
 	if (this != &right)
-	{
-		name = right.name;
-		HitPoints = right.HitPoints;
-		EnergyPoints = right.EnergyPoints;
-		AttackDamage = right.AttackDamage;
-	}
+		ClapTrap::operator=(right);
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destruction Called\n";
+	std::cout << "ScavTrap Destructor Called\n";
 }
 
-void ScavTrap::GuardGate()
+void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << name << " is now in Gate keeper mode!\n";
+}
+
+void ScavTrap:: attack(const std::string& target)
+{
+	if (!EnergyPoints || !HitPoints)
+	{
+		if (!EnergyPoints && HitPoints)
+			std::cout << name << " Exhausted!\n";
+		else
+			std::cout << name << " is DEAD!\n";
+		return ;
+	}
+	EnergyPoints--;
+	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << AttackDamage << " points of damage!\n";
 }

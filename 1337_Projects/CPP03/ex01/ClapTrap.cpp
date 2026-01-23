@@ -7,7 +7,7 @@ ClapTrap::ClapTrap() : name("! XXXXXXXX !"),  HitPoints(10), EnergyPoints(10), A
 
 ClapTrap::ClapTrap(const std::string& name) : name(name), HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
-	std::cout << "ClapTrap Parametred Constructor Called\n";
+	std::cout << "ClapTrap Parameterized Constructor Called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -45,7 +45,7 @@ void ClapTrap:: attack(const std::string& target)
 		return ;
 	}
 	EnergyPoints--;
-	std::cout << name << " attacks " << target << ", causing " << AttackDamage << " points of damage!\n";
+	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << AttackDamage << " points of damage!\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -74,19 +74,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 			std::cout << name << " is DEAD!\n";
 		return ;
 	}
-	else
-	{
-		if ((HitPoints + amount) > 10)
-		{
-			std::cout << "Maximum HitPoints is 10\n";	
-			HitPoints = 10;
-			EnergyPoints--;
-		}
-		else 
-		{
-			HitPoints += amount;
-			std::cout << name << " reagain " << amount << " hit points\n";
-			EnergyPoints--;
-		}
-	}
+	HitPoints += amount;
+	std::cout << name << " gaining " << amount << " hit points\n";
+	EnergyPoints--;
+
+
 }
