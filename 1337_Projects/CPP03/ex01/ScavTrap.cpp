@@ -10,7 +10,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Parametred Constructor Called of " << name << "\n";
+	std::cout << "ScavTrap Parametred Constructor Called\n";
 	HitPoints = 100;
 	EnergyPoints = 50;
 	AttackDamage = 20;
@@ -37,7 +37,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& right)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destruction Called of " << name << "\n";
+	std::cout << "ScavTrap Destruction Called\n";
 }
 
 void ScavTrap::GuardGate()
