@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 
 
-Animal::Animal() : type("!   Uknown Animal  !")
+Animal::Animal() : type("!   Unknown Animal  !")
 {
 	std::cout << "Animal Default Constructor Called\n";
 }

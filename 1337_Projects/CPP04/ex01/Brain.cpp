@@ -2,7 +2,7 @@
 
 Brain::Brain(void)
 {
-    std::cout << "Brain Defaul Constructor Called\n";
+    std::cout << "Brain Default Constructor Called\n";
 }
 
 Brain::Brain(const Brain &other)
@@ -13,11 +13,10 @@ Brain::Brain(const Brain &other)
 
 Brain &Brain::operator=(const Brain &other)
 {
-	int i;
     std::cout << "Brain Copy Assignment Constructor Called\n";
     if (this != &other)
     {
-		i = 0;
+		int i = 0;
 		while (i < 100)
 		{
 			ideas[i] = other.ideas[i];
