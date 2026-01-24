@@ -1,9 +1,8 @@
 #include "Animal.hpp"
 
 
-Animal::Animal()
+Animal::Animal() : type("!   Uknown Animal  !")
 {
-	this->type = "!!  Uknown  !!";
 	std::cout << "Animal Default Constructor Called\n";
 }
 
@@ -21,10 +20,6 @@ Animal& Animal::operator=(const Animal& right)
 	return (*this);
 }
 
-Animal::Animal (const std::string& type) : type (type)
-{
-	std::cout << "Animal Parameterized Constructor Called\n";
-}
 Animal::~Animal()
 {
 	std::cout << "Animal Destructor Called\n";

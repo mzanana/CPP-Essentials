@@ -19,23 +19,12 @@ Cat& Cat::operator=(const Cat& right)
 	return (*this);
 }
 
-Cat::Cat (const std::string& name) : Animal("Cat"), name(name)
-{
-	std::cout << "Cat Parameterized Constructor Called\n";
-}
-
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor Called\n";
 }
 
-void Cat::setType(const std::string& type)
-{
-	this->type = type;
-
-}
-
 void Cat::makeSound(void) const
 {
-	std::cout << "The Cat " << name <<  " meows\n";
+	std::cout << "The cat meows\n";
 }

@@ -1,6 +1,5 @@
 #include "Dog.hpp"
 
-
 Dog::Dog() : Animal()
 {
 	this->type = "Dog";
@@ -19,11 +18,6 @@ Dog& Dog::operator=(const Dog& right)
 	return (*this);
 }
 
-Dog::Dog (const std::string& name) : Animal("Dog"), name(name)
-{
-	std::cout << "Dog Parameterized Constructor Called\n";
-}
-
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor Called\n";
@@ -31,5 +25,5 @@ Dog::~Dog()
 
 void Dog::makeSound(void) const
 {
-	std::cout << "The dog " << name <<  " barks\n";
+	std::cout << "The dog barks\n";
 }
