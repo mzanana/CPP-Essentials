@@ -3,10 +3,10 @@ NAME = polymorphism
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
-HDR = Animal.hpp Cat.hpp Dog.hpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+HDR = Animal.hpp Cat.hpp Dog.hpp WrongCat.hpp WrongAnimal.hpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
