@@ -1,12 +1,12 @@
 <h1 align="center">Repetition and Exceptions</h1>
 
-### Introduction 
+## Introduction 
 
 It is a mechanism used to detect and manage errors that occur during the program execution, so its a **runtime** not compile time error.    
 
 Normally when an error occur, the program terminate its execution. Using the exception handling we bypass the termination of the program by throwing exceptions and catch them for handling, allowing the program to continuing its execution.  
 
-### Example of a program termination
+## Example of a program termination
 
 ```CPP
 #include <iostream>
@@ -33,7 +33,7 @@ The output :
 In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program
 
 
-### Handling with exception
+## Handling with exception
 ```CPP
 #include <iostream>
 
