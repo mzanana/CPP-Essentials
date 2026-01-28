@@ -2,9 +2,9 @@
 
 ## Introduction 
 
-It is a mechanism used to detect and manage errors that occur during the program execution, so its a **runtime** not compile time error.    
+**Handle Exception** is a mechanism used to detect and manage errors that occur during the program execution, so its a **runtime** not compile time error.    
 
-Normally when an error occur, the program terminate its execution. Using the exception handling we bypass the termination of the program by throwing exceptions and catch them for handling, allowing the program to continuing its execution.  
+Normally when an error occur, the program terminates its execution. Using the exception handling we bypass the termination of the program by throwing exceptions and catch them for handling, allowing the program to continuing its execution.  
 
 ## Example of a program termination
 
@@ -30,6 +30,7 @@ The output :
 <p align=center>
 	<img  src="./terminate.png" width=700>
 </p>
+
 In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program
 
 
@@ -64,6 +65,44 @@ Output :
 	<img  src="./catch.png" width=600>
 </p>
 
-Explanation :   
-The `divide(42, 0)` now is executed inside the `try` section, the `divide()` function throws a signal with an integer equal `1337`, the `catch` block in main sees the integer coming from `divide()` function, then it execute the code inside the `catch` block and runs it, after that it comes the time for the recovery step where the program continue its execution considering the error is solved.  
+**Explanation :**     
+The `divide(42, 0)` now is executed inside the `try` section, the `divide()` function throws an exception as integer equal `1337`, the `catch` block in main sees the integer coming from `divide()` function, then it execute the code inside the `catch` block and runs it, after that it comes the time for the recovery step where the program continue its execution considering the error is solved.  
 
+## Syntax Explanation
+
+### Try-catch Block
+
+#### Catch one exception
+```C++
+try
+{
+	//Part could throw an Exception
+}
+catch(ExceptionType e)
+{
+	//handling the caught exception
+}
+```
+
+Instead of implementing the part of the code that could throw an exception and terminate the program anywhere, we place this part inside the `try` block so we can handle the exception inside the `catch` block and recover the program from terminating to continuing the execution.   
+
+#### Catch multiple exception
+```cpp
+try
+{
+	// part might throw an exception
+}
+catch(type1 e)
+{
+	// executed when exception of type1
+}
+catch(type2 e)
+{
+	// executed when exception of type2
+}
+catch(...)
+{
+	// the `catch(...)` syntax executed when no type of the aboves types is caught
+}
+
+```
