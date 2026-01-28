@@ -8,11 +8,24 @@ Normally when an error occur, the program terminate its execution. Using the exc
 Example of a runtime error :  
 ```CPP
 #include <iostream>
-  
+
+float divide(float f1, float f2)
+{
+	if (f2 == 0)
+		throw 1337;
+	return (f1 / f2);
+}
+
 int main()
 {
-
+	std::cout << divide(42, 0);
+	std::cout << "You'll never see me!\n";
+	return (0);
 }
 ```
 
-Handling this exception :  
+The output :
+<p align=center>
+	<img  src="./terminate.png" width=700>
+</p>
+In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program
