@@ -28,7 +28,7 @@ int main()
 
 The output :
 <p align=center>
-	<img  src="./terminate.png" width=700>
+	<img  src="../assets/terminate.png" width=700>
 </p>
 
 In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program
@@ -62,7 +62,7 @@ int main()
 
 Output :  
 <p align=center>
-	<img  src="./catch.png" width=600>
+	<img  src="../assets/catch.png" width=600>
 </p>
 
 **Explanation :**     
@@ -106,3 +106,25 @@ catch(...)
 }
 
 ```
+
+### Throwing Exceptions
+
+There are **three** types of values that could be thrown by exceptions :  
+#### Throwing Built-in Types
+Those are very simple types like the one we used on the example, it does not provide any useful information, this type is not much different from handling errors using if else statements, 
+```cpp
+if (f2 == 0)
+	throw (1337);
+```
+
+#### Throwing Standard Exceptions
+Those are set of classes derived from the class `std::exception` declared on the header `<stdexcept>`
+<p align=center>
+	<img  src="../assets/excephier.webp" width=400>
+</p>
+
+`what()` : A method present in every standard exception class to provide information about the exception itself.  
+
+#### Throwing Custom Exceptions
+Sometimes the standard exceptions cannot satisfy our requirement, so we need to create a new class and we inherit `std::exception`.   
+
