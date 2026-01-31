@@ -16,22 +16,22 @@ Form& Form::operator=(const Form& right)
 Form::~Form(){}
 
 
-const std::string Form::getName(void)
+const std::string Form::getName(void) const
 {
 	return (this->name);
 }
 
-bool Form::getIsSigned(void)
+bool Form::getIsSigned(void) const
 {
 	return (this->isSigned);
 }
 
-int Form::getGradeToSign(void)
+int Form::getGradeToSign(void) const
 {
 	return (this->gradeToSign);
 }
 
-int Form::getGradeToExec(void)
+int Form::getGradeToExec(void) const
 {
 	return (this->gradeToExec);
 }
@@ -52,4 +52,10 @@ const char *Form::GradeTooHighException::what()  const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade Too Low!\n");
+}
+
+std::ostream& operator<<(std::ostream& right, const Form& form)
+{
+	right << form.getName() << " , required grade to sign : " << form.getGradeToSign() << ". Required grade to execute " << form.getGradeToExec() << ".  Is it signed -> " << form.getIsSigned() << std::endl;
+	return (right);	
 }
