@@ -2,7 +2,7 @@
 
 Form::Form() : name("Default Form"), isSigned(false), gradeToSign(75), gradeToExec(75){}
 
-Form::Form(const std::string& name, const int gradeToSign, const int gradeToExec) : name(name), gradeToSign(gradeToSign), gradeToExec(gradeToExec) {}
+Form::Form(const std::string& name, const int gradeToSign, const int gradeToExec) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExec(gradeToExec) {}
 
 Form::Form(const Form& other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExec(other.gradeToExec){}
 
