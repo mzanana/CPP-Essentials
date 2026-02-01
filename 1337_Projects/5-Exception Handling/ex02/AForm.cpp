@@ -44,9 +44,9 @@ int AForm::getGradeToExec(void) const
 
 void AForm::beSigned(Bureaucrat& crat)
 {
-	if (!isSigned)
+	if (isSigned)
 		throw AlreadySigned();
-	if (crat.getGrade() > this->gradeToSign)
+	if (crat.getGrade() > gradeToSign)
 		throw GradeTooLowException();
 	isSigned = true;
 }
@@ -80,7 +80,7 @@ std::ostream& operator<<(std::ostream& right, const AForm& form)
 
 void AForm:: execute(Bureaucrat const & executor) const
 {
-	if (isSigned)
+	if (!isSigned)
 		throw FormNotSigned();
 	if (executor.getGrade() > gradeToExec)
 		throw GradeTooLowException();
