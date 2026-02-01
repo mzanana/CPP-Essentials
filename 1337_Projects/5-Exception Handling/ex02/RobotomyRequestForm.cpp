@@ -29,8 +29,8 @@ std::string RobotomyRequestForm::getTarget(void) const
 
 void RobotomyRequestForm::action() const
 {
-    std::cout << "hkajshfkahdffhdahfkhdfa\n";
-    // std::srand(std::time(NULL));
+    std::cout << "DRRRRRRRRRRRRRRRRRRRR ...\n";
+    std::srand(std::time(NULL));
     if (std::rand() % 2 == 0)
         std::cout << target << " has bee robotomized successfully\n";
     else
