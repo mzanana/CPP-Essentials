@@ -30,6 +30,8 @@ std::string ShrubberyCreationForm::getTarget(void) const
 void ShrubberyCreationForm::action() const
 {
     std::ofstream output((target + "_shrubbery").c_str());
+    if (!output.is_open())
+        return;
 
     output << "                                                         ." << std::endl;
     output << "                                              .         ;  " << std::endl;
