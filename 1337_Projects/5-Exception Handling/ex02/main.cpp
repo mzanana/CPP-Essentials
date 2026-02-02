@@ -9,10 +9,33 @@ int main()
 {
 	try
 	{
-		Bureaucrat simo("simo", 1);
-		RobotomyRequestForm tree("darna");
-		simo.signForm(tree);
-		simo.executeForm(tree);		
+		{
+			Bureaucrat simo("simo", 1);
+			ShrubberyCreationForm tree("darna");
+			simo.signForm(tree);
+			simo.executeForm(tree);		
+		}
+		{
+			std::cout << std::endl;
+			Bureaucrat simo("simo", 1);
+			RobotomyRequestForm radio("radio");
+			simo.signForm(radio);
+			simo.executeForm(radio);		
+		}
+		{
+			std::cout << std::endl;
+			Bureaucrat simo("simo", 1);
+			PresidentialPardonForm wifi("wifi");
+			simo.signForm(wifi);
+			simo.executeForm(wifi);		
+		}
+		{
+			std::cout << std::endl;
+			Bureaucrat simo("simo", 10);
+			PresidentialPardonForm wifi("wifi");
+			simo.signForm(wifi);
+			simo.executeForm(wifi);		
+		}
 	}
 	catch(std::exception& e)
 	{
