@@ -3,6 +3,7 @@
 
 #include "Bureaucrat.hpp"
 #include <fstream> 
+#include <exception>
 
 class AForm
 {
@@ -39,11 +40,7 @@ class AForm
 			public:
 			virtual const char* what() const throw();
 		};
-		class AlreadySigned : public std::exception
-		{
-			public:
-			virtual const char* what() const throw();
-		};
+		
 		class FormNotSigned: public std::exception
 		{
 			public:
