@@ -1,4 +1,7 @@
 #include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 Intern::Intern(){}
 
@@ -30,14 +33,14 @@ AForm* Intern::makePresidential(std::string target)
     return new PresidentialPardonForm(target);
 }
 
-AForm* Intern::makeForm(std::string formName, std::string target)
+AForm* Intern::makeForm(const std::string& formName, const std::string&target)
 {
 	int i;
 
 	std::string forms[] = {
-		"ShrubberyCreation",
-		"RobotomyRequest",
-		"PresidentialPardon"
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon"
 	};
 
 	AForm*(Intern::*retFun[])(std::string) = {
