@@ -11,14 +11,21 @@ int main()
 	{
 		Bureaucrat simo("simo", 1);
 		Intern messi;
-		AForm* chajara = messi.makeForm("ShrubberyCreation", "chajara");
+		AForm* chajara = messi.makeForm("shrubbery creation", "chajara");
+		if (!chajara)
+			return (1);
 		simo.signForm(*chajara);
 		simo.executeForm(*chajara);
 	}
 	{
-		Bureaucrat simo("simo", 1);
+		std::cout << std::endl;
+		Bureaucrat simo("simo", 10);
 		Intern messi;
-		messi.makeForm("ShrubberyCreation", "chajara");	
+		AForm* radio = messi.makeForm("robotomy request", "radio");
+		if (!radio)
+			return (1);
+		simo.signForm(*radio);
+		simo.executeForm(*radio);
 	}
-		return (0);
+	return (0);
 }
