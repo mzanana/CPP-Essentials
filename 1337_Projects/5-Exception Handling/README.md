@@ -4,7 +4,7 @@
 
 **Handle Exception** is a mechanism used to detect and manage errors that occur during the program execution, so its a **runtime** not compile time error.    
 
-Normally when an error occur, the program terminates its execution. Using the exception handling we bypass the termination of the program by throwing exceptions and catch them for handling, allowing the program to continuing its execution.  
+When an error occur, the program terminates its execution. Using the exception handling we bypass the termination of the program by throwing exceptions and catch them for handling, allowing the program to continuing its execution.  
 
 ## Example of a program termination
 
@@ -31,8 +31,7 @@ The output :
 	<img  src="../assets/terminate.png" width=700>
 </p>
 
-In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program
-
+In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program.  
 
 ## Handling with exception
 ```CPP
@@ -126,5 +125,33 @@ Those are set of classes derived from the class `std::exception` declared on the
 `what()` : A method present in every standard exception class to provide information about the exception itself.  
 
 #### Throwing Custom Exceptions
-Sometimes the standard exceptions cannot satisfy our requirement, so we need to create a new class and we inherit `std::exception`.   
+Sometimes the standard exceptions cannot satisfy our requirement, so we need to create a new **class** inherited from  `std::exception` class.  
 
+> **Nested Class :** A class which is declared inside another enclosing class.  
+
+In our project, to define a new exceptions we gonna create a nested class named by the exception type inside the Bureaucrat class.  
+
+```cpp
+class Bureaucrat
+{
+	private:
+		// private attributes
+	public:
+		// public attributes
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return ("Grade Too High!");
+				}
+		};
+}
+```
+
+
+So from now on we can throw the exception `Bureaucrat::GradeTooHigh()` when needed.  
+Why we use exactly that prototype for `what()`  method :  
++ This is an overriding of a virtual method inherited from the standard base class `std::exception`;  
++ We should match the same signature as the base method;  
++ `throw()` : means that this method will not throw any exceptions, for example we throw exception inside the `what()` method the program will terminate immediately calling `std::unexpected`;  
