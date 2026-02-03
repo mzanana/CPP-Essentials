@@ -261,3 +261,109 @@ Why we use exactly that prototype for `what()`  method :
 + This is an overriding of a virtual method inherited from the standard base class `std::exception`;  
 + We should match the same signature as the base method;  
 + `throw()` : means that this method will not throw any exceptions, for example we throw exception inside the `what()` method the program will terminate immediately calling `std::unexpected`;  
+
+## Stack Unwinding
+
+**Stack Unwinding** is the process of cleaning up the call stack when an exception is thrown. C++ automatically destroys all local objects and exits functions until it finds a matching `catch` block.
+
+### How it works
+
+When you throw an exception:
+1. **Destroy** all local objects in the current function (calls their destructors)
+2. **Exit** the current function
+3. **Repeat** in the calling function
+4. **Continue** until a `catch` block is found
+
+### Example
+
+```cpp
+#include <iostream>
+
+class Object
+{
+	private:
+		std::string name;
+	public:
+		Object(std::string n) : name(n)
+		{
+			std::cout << name << " created\n";
+		}
+		~Object()
+		{
+			std::cout << name << " destroyed\n";
+		}
+};
+
+void functionC()
+{
+	Object obj3("obj3");
+	throw std::runtime_error("Error!");
+}
+
+void functionB()
+{
+	Object obj2("obj2");
+	functionC();
+}
+
+void functionA()
+{
+	Object obj1("obj1");
+	try
+	{
+		functionB();
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Caught: " << e.what() << "\n";
+	}
+}
+
+int main()
+{
+	functionA();
+	return (0);
+}
+```
+
+**Output:**
+```
+obj1 created
+obj2 created
+obj3 created
+obj3 destroyed    ← Stack unwinding starts
+obj2 destroyed    ← Stack unwinding continues
+Caught: Error!
+obj1 destroyed    ← Normal destruction
+```
+
+<p align=center>
+	<img  src="../assets/stack_unwinding.png" width=800>
+</p>
+
+**Explanation:**  
+When the exception is thrown in `functionC`, stack unwinding begins: `obj3` is destroyed, `functionC` exits, then `obj2` is destroyed, `functionB` exits, and finally the exception is caught in `functionA`.
+
+### Why it matters
+
+**The exception object must survive stack unwinding!** That's why C++ copies the thrown exception to special memory:
+
+```cpp
+void throwError()
+{
+	std::runtime_error err("Error");
+	throw err; // err is copied
+} // Original err destroyed here
+
+try
+{
+	throwError();
+}
+catch (const std::runtime_error& e)
+{
+	// e refers to the copy, not the original
+	std::cout << e.what(); // Safe!
+}
+```
+
+**Important:** Destructors should NEVER throw exceptions during unwinding, or the program will terminate.
