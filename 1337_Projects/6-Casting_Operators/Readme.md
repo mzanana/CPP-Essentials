@@ -25,3 +25,18 @@
         <p align=center>
 	<img src="../assets/sing.webp" width=350>
 </p>
+
+### Types of Type Conversion
+There are two types of type conversion :  
+#### Implicit Type  
+The implicit type is when the compiler automatically convert the data types bases on needed cases, for example :  
++ Operations are performed of values with the different data types;  
++ Passing argument type X to a function that expect a data type Y;  
++ Assigning a value of one data type to variable of another type;  
+<p align=center>
+	<img src="../assets/auto.webp" width=450>
+</p>
+
++ **Widening :** Also known as promotion, converting a value from a smaller or less precise data type to a large or more precise data type.  
++ **Narrowing :** Demotion, the opposite process. It is highly possible  to lead to **meaning lost** that we talk about earlier.   
+
