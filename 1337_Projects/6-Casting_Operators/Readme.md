@@ -9,6 +9,7 @@
 	<img src="../assets/tycon.webp" width=350>
 </p>
 
+
 ## Information Losing
  Data has its own value and format, when converting a data to a new type that can't hold its value or format we talking here about losing its meaning;    
 
@@ -30,10 +31,12 @@ Happens when mixing negative numbers in types that can only be positive, for exa
 	<img src="../assets/sing.webp" width=350>
 </p>
 
+
+
 # Types of Type Conversion
-There are two types of type conversion :  
+
 ## Implicit Type  
-The implicit type is when the compiler automatically convert the data types bases on needed cases, for example :  
+The implicit type is when the compiler **automatically** convert the data types bases on needed cases, for example :  
 + Operations are performed of values with the different data types;  
 + Passing argument type X to a function that expect a data type Y;  
 + Assigning a value of one data type to variable of another type;  
@@ -48,4 +51,7 @@ The implicit type is when the compiler automatically convert the data types base
 The explicit type conversion also called **type casting** is the conversion of one type of data type to another type **manually** by the programmer.  it can be done by two ways :  
 + **C Style Typecasting :** This method is inherited from C. `(newType) expression;` also known as forceful casting;  
 + **C++ Style Typecasting :** This method is an unary operator which force one data type to be converted into another data type. C++ support four types of typecasting, there is **static, dynamic, const and reinterpret cast** ;  
+<p align=center>
+	<img src="../assets/explicit.webp" width=650>
+</p>
 
