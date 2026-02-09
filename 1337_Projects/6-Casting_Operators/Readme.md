@@ -50,8 +50,61 @@ The implicit type is when the compiler **automatically** convert the data types 
 ## Explicit Type
 The explicit type conversion also called **type casting** is the conversion of one type of data type to another type **manually** by the programmer.  it can be done by two ways :  
 + **C Style Typecasting :** This method is inherited from C. `(newType) expression;` also known as forceful casting;  
-+ **C++ Style Typecasting :** This method is an unary operator which force one data type to be converted into another data type. C++ support four types of typecasting, there is **static, dynamic, const and reinterpret cast** ;  
++ **C++ Style Typecasting :** This method is an unary operator which force one data type to be converted into another data type. Also called **casting operators**! C++ support four types of typecasting, there is **static, dynamic, reinterpret and const cast** ;  
 <p align=center>
 	<img src="../assets/explicit.webp" width=650>
 </p>
 
+### Static Cast
+Static cast type is a compile time check! If the conversion is impossible or nonsense, the compiler breaks with an error and refuse to build the executable file.  
+There is no run-time safety because every checks happens on the compile time.  
+
+**Syntax**  
+```c++
+static_cast<newType> (source);
+```
+
+It is like the C-style casting, but the static_cast is stricter and safer, on the C-style cast the compiler tries to apply each possible C++ casts until one works, in a specific order :  
++ `const_cast`;  
++ `static_cast`;  
++ `static_cast` followed by `const_cast`;  
++ ...etc
+
+The `static_cast` is safer and stricter because it remove the ability to do dangerous stuff like turning integer into pointer (reinterpret_cast) or removing the constness (const_cast).  
+
+**Example**  
+```cpp
+#include <iostream>
+
+class Base {};
+class Derived : public Base {};
+
+int main()
+{
+	float a = 10,513;
+	int   x = static_cast<int>(a);
+	std::cout << "a is " << a << " and x is " << x << std::endl; // gonna print 10
+	
+
+	Derived der;
+	Base* ba = static_cast<Base*>(&der);
+	
+	
+	return(0);	
+}
+```
+
+**Another Example**  
+static_cast operator allows casting from any pointer type to void pointer and vice versa.  
+```c++
+#include <iostream>
+
+int main()
+{
+	int x = 1337;
+	void* vo = static_cast<void*> (&x);
+	void* ip = static_cast<int*> (vo);
+	
+	std::cout << *vo << std::endl; // gonna print 1337
+}
+```
