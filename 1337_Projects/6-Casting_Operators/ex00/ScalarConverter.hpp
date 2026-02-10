@@ -4,10 +4,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <limits>
+#include <limits> 
 #include <cmath>
-// #include <cctype>
-// #include <iomanip>
+#include <cctype>
 
 enum Type
 {
