@@ -1,20 +1,9 @@
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(){};
-
-ScalarConverter::ScalarConverter(const ScalarConverter& other)
-{
-	(void)other;
-};
-
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& right)
-{
-	(void)right;
-	return(*this);
-}
-
+ScalarConverter::ScalarConverter(const ScalarConverter& other){(void)other;};
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& right){(void)right;return(*this);}
 ScalarConverter::~ScalarConverter(){};
-
 
 static int isInt(std::string& input)
 {
@@ -124,7 +113,7 @@ static void printChar(double& num, int& pseudo)
 	else if (!std::isprint(num))
 		std::cout << "char: Non displayable\n";
 	else
-		std::cout << "char: " << static_cast<char> (num) << '\n';
+		std::cout << "char: '" << static_cast<char> (num) << "'\n";
 }
 static void printInt(double& num, int& pseudo)
 {
