@@ -10,8 +10,11 @@ OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HDR)
+$(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+%.o:%.cpp $(HDR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
@@ -19,4 +22,4 @@ fclean: clean
 	rm -f $(NAME)
 re: fclean $(NAME)
 
-.PHONY: clean
+.PHONY: all clean fclean re 
