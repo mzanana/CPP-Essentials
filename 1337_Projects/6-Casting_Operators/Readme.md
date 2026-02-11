@@ -108,3 +108,12 @@ int main()
 	std::cout << *vo << std::endl; // gonna print 1337
 }
 ```
+
+# Exercises 
+## ex00  
+### Is class a namespace ??
+while using the syntax `ScalarConverter::convert(av[1])`, we gonna notice that it is equivalent to the **namespace** syntax `std::cout`. Here where some student think of a class as a namespace. is it ?  
+
++ **Namespaces :** are purely for grouping code to prevent **naming collisions**, we cannot create an instance of a namespace;  
++ **Classes :** are blueprints for objects, the syntax that looks like the namespace is valid only for the **static** methods, because they don't need an object to be called, so we can call them using `ScalarConverter::convert(av[1])`.   
+
