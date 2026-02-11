@@ -109,6 +109,8 @@ int main()
 }
 ```
 
+
+
 # Exercises 
 ## ex00  
 ### Is class a namespace ??
@@ -116,4 +118,33 @@ while using the syntax `ScalarConverter::convert(av[1])`, we gonna notice that i
 
 + **Namespaces :** are purely for grouping code to prevent **naming collisions**, we cannot create an instance of a namespace;  
 + **Classes :** are blueprints for objects, the syntax that looks like the namespace is valid only for the **static** methods, because they don't need an object to be called, so we can call them using `ScalarConverter::convert(av[1])`.   
+
+<p align=center>
+	<img src="../assets/nameclass.webp" width=550>
+</p>
+
+### Global Namespace
+The global namespace is **no namespace**, anything used outside any declared namespace is in the global namespace.  
+
+For declared namespaces we use the syntax `declared::method()`, before the **scope resolution operator `::`** that tells the compiler to look inside the scope of `declared` for `method()`. In  the **global namespace** we use a empty space before `::`  example `::method()`.    
+
+
+### Special floating-point values
+
+#### +inf  and -inf
+`inf` stand for infinity, result of dividing a non-zero number by zero or a overflow.   
+
+#### NaN
+NaN stand for Not a Number, result of undefined operations like `0.0 / 0.0` or `sqrt(-1)`, also `+inf - +inf = NaN` or `0 * +inf = NaN`.    
+
+
+### strtod
+Exist in C standard library, included via `<cstdlib>`, syntax :  
+```cpp
+	double strtod(const char* nptr, char** endptr);
+```
+Where :  
++ `nptr` is a pointer to a C string containing the number test to parse.  
++ `endptr` pint to the first character after the parsed number.  
+
 
