@@ -109,7 +109,50 @@ int main()
 }
 ```
 
+### Reinterpret Cast
+**Reinterpret_cast** it is the most powerful and the most dangerous type of casting.  
+The `reinterpret_cast` does not change the binary of the data like the `static_cast` does, it simply changes how the compiler **interpret** that data.  
+It tells the compiler to treat a sequence of bits as a completely different type without any safety checks.  
 
+**Example**  
+```cpp
+#include <iostream>
+
+int main()
+{
+	int* x = new int(65);
+	char* ch = reinterpret_cast<char*> (x);
+	std::cout << *x << std::endl;
+	std::cout << *ch << std::endl;
+
+	std::cout << p << std::endl;
+	std::cout << x << std::endl;
+}
+```
+
+The output is :  
+```
+65
+A
+0x1012d4c1
+A
+```
+
+**Another crazy Example**  
+```cpp
+#include <iostream>
+
+int main()
+{
+    char x = 48;
+    std::cout << &x << std::endl;
+    int* p = reinterpret_cast<int*>(&x);
+    std::cout << *p << std::endl;
+    std::cout << p << std::endl;
+
+    return 0;
+}
+```
 
 # Exercises 
 ## ex00  
