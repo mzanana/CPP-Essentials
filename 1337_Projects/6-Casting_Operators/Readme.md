@@ -154,6 +154,23 @@ int main()
 }
 ```
 
+### Dynamic cast
+Not like the static_cast, the **dynamic_cast** operator convert data from one type to another type at **runtime** not compiletime, the main case when we need the dynamic casting in inherited class for safely casting the base class pointer or reference to derived class which called the **downcasting**.  
+To work with dynamic casting we need at least one virtual function in the base class.  
+
+**Syntax**  
+```c++
+dynamic_cast<new_type> (expression);
+```
+
+How we check if the casting is the exact derived class ?  
++ If the pointer pointed to is casted to the right derived class the class succeeds, if the cast is invalid the pointer is set to **nullptr**;  
+
++ If the reference is valid of that casting then everything is good, else the program throw the **std::bad_cast** exception.  
+
+
+
+
 # Exercises 
 ## ex00  
 ### Is class a namespace ??
