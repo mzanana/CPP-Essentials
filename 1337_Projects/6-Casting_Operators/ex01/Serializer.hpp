@@ -1,24 +1,21 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-typedef struct s_data
-{
-    int     *in;
-    char    *ch;
-    
-}
+#include "Data.hpp"
+#include <string>
+
 class Serializer
 {
     private:
         Serializer();
         Serializer(const Serializer& other);
+        
+    public:
         Serializer& operator=(const Serializer& right);
         ~Serializer();
-    
-    public:
+        
         static uintptr_t serialize(Data* ptr);
-        Data* deserialize(uintptr_t raw);
-
-}
+        static Data* deserialize(uintptr_t raw);
+};
 
 #endif
