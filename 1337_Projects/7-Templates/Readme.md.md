@@ -21,3 +21,4 @@ int max(const int& first, const int& second)
 And so on ... For each time we need a new max comparison between two variables we gonna need a new function that implement it. **ISN'T THAT REPETITIVE ???**   
 
 
+Templates 
