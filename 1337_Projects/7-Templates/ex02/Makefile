@@ -2,7 +2,7 @@ NAME = array
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = 1main.cpp
+SRC = main.cpp
 HDR = Array.hpp
 OBJ = $(SRC:%.cpp=%.o)
 
