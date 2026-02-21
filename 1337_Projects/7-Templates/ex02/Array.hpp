@@ -12,7 +12,10 @@ class Array
 		Array(unsigned int n);
 		Array(const Array& other);
 		Array& operator=(const Array& right);
+		T& operator[](unsigned int index);
+		const T& operator[](unsigned int index) const;
 		~Array();
+		unsigned int size() const;
 };
 
 template <typename T>
@@ -56,4 +59,27 @@ Array<T>::~Array()
 {
 	delete[] array;
 }
+
+template <typename T>
+unsigned int Array<T>::size() const
+{
+	return (this->n);
+}
+
+template <typename T>
+T& Array<T>::operator[](unsigned int index)
+{
+	if (index >= n)
+		throw std::out_of_range("Index out of bounds");
+	return (array[index]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int index) const
+{
+	if (index >= n)
+		throw std::out_of_range("Index out of bounds");
+	return (array[index]);
+}
+
 #endif
