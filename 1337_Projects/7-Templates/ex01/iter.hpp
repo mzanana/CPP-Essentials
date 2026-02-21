@@ -11,6 +11,4 @@ void iter(T* array, const size_t len, F fun)
 		fun(array[i]);
 	}
 }
-
-
 #endif
