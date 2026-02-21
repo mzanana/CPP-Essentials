@@ -92,3 +92,20 @@ int main()
 	second.getValues();
 }
 ```
+
+
+# Templates Core Concepts
+## Template Argument Deduction
+
+## Explicit & Implicit Instantiation
+
+## Variadic Templates
+
+## Perfect Forwarding
+
+
+## Defining two typenames
+
+## Trailing return types
+
+## .tpp file 
