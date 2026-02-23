@@ -15,4 +15,12 @@ There are many benefits of the STL in c++, for example :
 + Save time and effort;  
 + Fast and efficient;  
 + Reusability.  
-+ 
+
+# Containers
+## Definition
+Think of a container as a digital box that hold and organize data.  
+
+## Core Characteristics :  
++ It allocates memory to keep the objects safe;  
++ It does not hold just one item, it hold a set or a sequence of object;  
++ It handle the memory cleanup by using a garbage collector.  
