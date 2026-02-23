@@ -24,3 +24,26 @@ Think of a container as a digital box that hold and organize data.
 + It allocates memory to keep the objects safe;  
 + It does not hold just one item, it hold a set or a sequence of object;  
 + It handle the memory cleanup by using a garbage collector.  
+
+## Types of Containers
+There are 4 types of containers.
+### Sequence Containers
+Sequence containers implement **linear** data structures in which the elements can be accessed sequentially.  
+There are only **5** standard sequence containers in the modern C++ STL, we have `std::array`, `std::vector`, `std::list`, `std::forward_list` and `std::deque`.
+#### std::vector
+Vector is a class in C++ provided as a class template within the Standard Template Library, it represents a dynamic sized array that automatically grows or shrinks in size as we add or remove elements on it.  
+All the elements of the vector are stored right next to each other in memory just like a raw C-Array. 
+**Syntax :**  
+```cpp
+#include <vector>
+
+std::vector<datatype> name(size, init_with);
+```
+So for example if we want to create int array of size 10 initialized with value 1337, we just need to the next syntax :  
+```cpp
+std::vector<int> ve1(10, 1337);
+```
+Or we can use the second manual way :
+```cpp
+std::vector<int> ve2 = {1337, 1337, ..., 1337} // `1337` 10 times
+```
