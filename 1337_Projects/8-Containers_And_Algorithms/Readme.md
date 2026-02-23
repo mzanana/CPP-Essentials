@@ -47,3 +47,25 @@ Or we can use the second manual way :
 ```cpp
 std::vector<int> ve2 = {1337, 1337, ..., 1337} // `1337` 10 times
 ```
+
+##### Insert Elements
+We have two ways to insert elements into the **vector** :  
++ `push_back(value)` to insert the `value` to the end of the vector, notice that we don't have any `push_front()` or `add_back()` or anything like this, we have only `push_back`;  
++ `insert(position, value)` it's the second way to insert element at any position we want on the vector, it takes `O(n)` as it shifts elements to make space.  
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	std::vector<int> vec = {1, 3};
+	vec.push_back(7);
+	vec.insert(vec.begin() + 1, 3);
+	for (int i = 0; i < vec.size(); i++)
+		std::cout << vec[i];
+	std::cout << std::endl;
+	return (0);
+}
+```
+The output is :  `1337`   
