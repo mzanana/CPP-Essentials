@@ -157,3 +157,18 @@ int main()
 		std::cout << *it << ' ';
 }
 ```
+
+## For Each vs Iterator
+The best practice is using iterators when editing on the elements, and for each loop just for printing the elements; 
+```cpp
+int main()
+{
+	std::vector<int> ve = {1, 3, 3, 7};
+	
+	for (std::vector<int>::iterator it = ve.begin(); it != ve.end(); it++)
+		*it += 2;
+	for (const int &i : ve)
+		std::cout << i << " ";
+	
+}
+```
