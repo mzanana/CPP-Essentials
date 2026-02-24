@@ -97,3 +97,18 @@ int main()
 ```
 Output is : `13 37`  
 
+##### Update Element and Empty Check
+Just like C-arrays we use the index of the element we wanna update directly. 
+And to check the vector if its empty we simply use `vec.empty()`, it returns true if its empty and false if there is elements at the vector.  
+```cpp
+int main()
+{
+	std::vector<int> vec = {1, 3, 4, 7};
+	
+	vec[2] = 3;
+	for (int i = 0; i < vec.size(); i++)
+		std::cout << vec[i];
+}
+```
+Output is `1337`  
+
