@@ -138,3 +138,22 @@ UAC implement unsorted hashed data structures that can be quickly searched.
 **Stack :** Adapts a container to provide stack (LIFO) data structure;  
 **Queue :** Adapt a container to provide queue (FIFO) data structure;  
 **Priority Queue :** Adapt a container to provide heap data structure.  
+
+# Iterators
+## Definition
+Iterator is an object that behave like a pointer to traverse and access elements of a container.  
+
+**Syntax :** 
+`container_type::iterator it_name`  
+**Example :**  
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	std::vector<int> v = {10, 20, 30, 40};
+	for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++)
+		std::cout << *it << ' ';
+}
+```
