@@ -3,6 +3,8 @@
 
 #include <algorithm>
 #include <exception>
+#include <vector>
+#include <iostream>
 
 class ExceptionNotFound : public std::exception
 {
@@ -15,10 +17,12 @@ class ExceptionNotFound : public std::exception
 template <typename T>
 typename T::iterator easyfind(T& container, int toFind)
 {
-	auto it = std::find(container.begin(), container.end(), toFind); 
-	if (it != container.end())
-		return (*it);
-	throw ExceptionNotFound();
+	typename T::iterator it;
+
+	it = std::find(container.begin(), container.end(), toFind);
+	if (it == container.end())
+		throw ExceptionNotFound();
+	return (it);
 }
 
 #endif
