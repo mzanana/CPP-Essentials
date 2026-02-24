@@ -81,6 +81,14 @@ int main()
 The output is :  `12`   
 And to visualize it, it goes by those steps : `13    137    1237   123    12`
 
+For insert() there is three **overloaded** methods :  
+1. `iterator insert(iterator pos, const T& value);` Insert single element at position 
+
+2. `void insert(iterator pos, size_type n, const T& value);` Insert n copies of value at position
+
+3. `template<typename InputIterator> void insert(iterator pos, InputIterator first, InputIterator last);` Insert range [first, last] at position
+
+
 ##### Access Elements
 We have two options to access elements of a vector, the first one is direct access `vec[i]`, and the second way is **bounds-checked** access which throw exception if the index is out of range, its syntax is `vec.at(i)`;  
 ```cpp
