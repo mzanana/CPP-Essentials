@@ -172,3 +172,34 @@ int main()
 	
 }
 ```
+
+## begin() and end() methods
+`begin()` and `end()` are methods belong to the containers and not the iterator itself.  
++ **`begin()`** returns an iterator that point to the first element of the container;  
++ **`end()`** returns an iterator that point to the end of the container not the last element, if we want to use the last element of the container we use `ve.end() - 1`.  
+
+Here is the list of all the other methods that returns iterator to the containers :  
+<p align="center">
+	<img src="../../assets/itmeth.png" width=500>
+</p>
+## Adding/Subtracting integer to iterators
+
+Just on some containers like vectors and deque, we can add and subtract integer to iterator to move it forward and backward.  
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	std::vector<int> vec = {1, 2, 3, 4, 5, 6};
+	
+	std::vector<int>::iterator it = vec.begin();
+	std::cout << *it << ' ';
+	it += 4;
+	std::cout << *it << ' ';
+	it--;
+	std::cout << *it << std::endl;
+}
+```
+Output is :  `1 5 4`;
+
