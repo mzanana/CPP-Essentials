@@ -112,3 +112,21 @@ int main()
 ```
 Output is `1337`  
 
+### Associative Containers
+Associative Containers store data in some sorted order and provides fast search, insert and delete in O(log n), we have four types of Associative Containers and they are :  
++ **Set :** Collection of unique elements stored by their values;  
++ **Multiset :** Collection of elements sorted on the basis of their value but allows multiple copies of values;  
++ **Map :** Collection of key-value pairs stored on the basis of the keys where the keys are primary and unique;  
++ **Multimap :** Collection of key-value where pairs can have same keys.  
+
+### Unordered Associative Containers
+UAC implement unsorted hashed data structures that can be quickly searched.  
++ **Unordered Set :** Collection of unique elements hashed by their values;  
++ **Unordered Multiset :** Collection of elements hashed by their values and allows multiple copies of values;  
++ **Unordered Map :** Collection of key-value pairs that are hashed by their keys where no two pairs have same keys;  
++ **Unordered Multimap :** Collection of key-value pairs that are hashed by their keys where multiple pairs can have same keys.  
+
+### Container Adapters
+**Stack :** Adapts a container to provide stack (LIFO) data structure;  
+**Queue :** Adapt a container to provide queue (FIFO) data structure;  
+**Priority Queue :** Adapt a container to provide heap data structure.  
