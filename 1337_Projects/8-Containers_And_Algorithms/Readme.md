@@ -48,24 +48,35 @@ Or we can use the second manual way :
 std::vector<int> ve2 = {1337, 1337, ..., 1337} // `1337` 10 times
 ```
 
-##### Insert Elements
+##### Insert, Erase Element and Size of vector
 We have two ways to insert elements into the **vector** :  
 + `push_back(value)` to insert the `value` to the end of the vector, notice that we don't have any `push_front()` or `add_back()` or anything like this, we have only `push_back`;  
 + `insert(position, value)` it's the second way to insert element at any position we want on the vector, it takes `O(n)` as it shifts elements to make space.  
 
+To erase elements from the vector we have two cases:  
++ For the element at the end of the vector we use `vec.pop_back()`;
++ For element at index i we use the method `vec.erase()` which takes the iterator of the element we wanna erase.  
+
+Also we can have the size of the vector directly using the method `vec.size()`  
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int main()
 {
 	std::vector<int> vec = {1, 3};
+	
 	vec.push_back(7);
-	vec.insert(vec.begin() + 1, 3);
+	vec.insert(vec.begin() + 1, 2);
+	vec.pop_back();
+	vec.erase(std::find(vec.begin(), vec.end(), 3));
 	for (int i = 0; i < vec.size(); i++)
 		std::cout << vec[i];
+	
 	std::cout << std::endl;
 	return (0);
 }
 ```
-The output is :  `1337`   
+The output is :  `12`   
+And to visualize it, it goes by those steps : `13    137    1237   123    12`
