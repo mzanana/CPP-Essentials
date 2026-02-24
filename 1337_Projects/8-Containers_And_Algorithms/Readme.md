@@ -80,3 +80,20 @@ int main()
 ```
 The output is :  `12`   
 And to visualize it, it goes by those steps : `13    137    1237   123    12`
+
+##### Access Elements
+We have two options to access elements of a vector, the first one is direct access `vec[i]`, and the second way is **bounds-checked** access which throw exception if the index is out of range, its syntax is `vec.at(i)`;  
+```cpp
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	std::vector<int> vec = {10, 13, 1337, 37};
+	
+	std::cout << vec[1] << " ";
+	std::cout << vec.at(3) << std::endl;
+}
+```
+Output is : `13 37`  
+
