@@ -35,7 +35,7 @@ class Span
 		int shortestSpan();
 		int longestSpan();
 		void multipleAdd(const std::vector<int>& numbers);
-		void ft_print();
+		// void ft_print();
 };
 
 #endif

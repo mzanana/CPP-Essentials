@@ -75,9 +75,9 @@ void Span::multipleAdd(const std::vector<int>& numbers)
 		throw AddErrorException();
 	vec.insert(vec.end(), numbers.begin(), numbers.end());
 }
-void Span::ft_print()
-{
-	for (iter it = vec.begin(); it != vec.end(); it++)
-		std::cout << *it << ' ';
-	std::cout << std::endl;
-}
+// void Span::ft_print()
+// {
+// 	for (iter it = vec.begin(); it != vec.end(); it++)
+// 		std::cout << *it << ' ';
+// 	std::cout << std::endl;
+// }
