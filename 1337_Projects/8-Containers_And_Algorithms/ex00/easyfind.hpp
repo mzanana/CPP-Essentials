@@ -8,7 +8,7 @@
 
 class ExceptionNotFound : public std::exception
 {
-	const char* what() const throw()
+	virtual const char* what() const throw()
 	{
 		return ("Element Not Found!\n");
 	}
