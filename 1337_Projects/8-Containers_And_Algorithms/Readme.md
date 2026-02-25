@@ -203,3 +203,52 @@ int main()
 ```
 Output is :  `1 5 4`;
 
+# Algorithms
+Algorithms are used to solve problems by **sorting**, **searching** and **manipulating** data structures.  
+The header `#inlude <algorithm>` is necessary to use them.   
+We can divide the algorithms into **four** parts :  
+## Searching Algorithms
+
+### Definition 
+Searching algorithms are used to **find** a specific element  or information in a data structure like as array, vector or list.  
+
+### Example of algorithms
+#### find()
+The find function takes three parameters : `start_iterator`, `end_iterator` and `value` to search for, and it returns an iterator to the specific element if found or to `.end()` iterator if not found.   
+**syntax :**
+`std::find(start_iter, end_iter, value);`
+```cpp
+#include <algorithm>
+
+std::vector<int> nums = {12, 23, 34, 45};
+
+std::vector<int>::iterator it = find(nums.begin(), nums.end(), 23);
+if (it == nums.end())
+	std::cout << "Element not found";
+else
+	std::cout << "Element Found";
+```
+
+## Sorting Algorithms
+### Definition
+To store the elements in a container or array we use sorting algorithms.
+
+### Example of sorting algorithms
+#### sort()
+sort() function take two parameters, the iterator to start sorting and the iterator to stop, its default sort is ascending order.  
+**Syntax :**  
+`sort(start_iter, end_iter);`  
+```cpp
+std::vector<int> nums = {12, -23, 0, 34, 5};
+
+// sorting ascending
+sort(nums.begin(), nums.end());
+
+// sorting descending
+sort(nums.rbegin(), nums.rend());
+```
+
+
+## Other types of algorithms
+And there is other types of algorithms as **Manipulation algorithms** which contain `copy()`, `swap()`, `move()` etc... and the **Counting & Comparing algorithms** which contain `count()`, `equal()`etc ...  
+
