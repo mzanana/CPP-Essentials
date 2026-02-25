@@ -4,10 +4,7 @@ Span::Span() : N(0){}
 
 Span::Span(unsigned int size): N(size){}
 
-Span::Span(const Span& other)
-{
-	*this = other;
-}
+Span::Span(const Span& other) : N(other.N), vec(other.vec){}
 
 Span& Span::operator=(const Span& right)
 {
@@ -25,6 +22,7 @@ const char* Span::AddErrorException::what() const throw()
 {
 	return ("No space to add new number(s)!\n");
 }
+
 const char* Span::NoSpanException:: what() const throw()
 {
 	return ("Make sure you entred at least two numbers!\n");
@@ -36,6 +34,7 @@ void Span::addNumber(int toAdd)
 		throw AddErrorException();
 	vec.push_back(toAdd);
 }
+
 int Span::shortestSpan()
 {
 	if (vec.size() < 2)
@@ -75,6 +74,7 @@ void Span::multipleAdd(const std::vector<int>& numbers)
 		throw AddErrorException();
 	vec.insert(vec.end(), numbers.begin(), numbers.end());
 }
+
 // void Span::ft_print()
 // {
 // 	for (iter it = vec.begin(); it != vec.end(); it++)
