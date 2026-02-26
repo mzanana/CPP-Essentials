@@ -138,6 +138,67 @@ UAC implement unsorted hashed data structures that can be quickly searched.
 **Stack :** Adapts a container to provide stack (LIFO) data structure;  
 **Queue :** Adapt a container to provide queue (FIFO) data structure;  
 **Priority Queue :** Adapt a container to provide heap data structure.  
+#### std::stack()
+**Stack** container follows LIFO order of insertion and deletion, that mean the last added element on stack the first one we able to remove, and the first element we add is the last one we can remove, we have only one place to play with and its the head of the stack, called also the **top** of the stack.  
+
+**Syntax :**  
+`stack<T> sta;` with `T` is the DataType of the stack elements and `sta` the name of the stack container.  
+
+##### Inserting Elements in stack
+In stack, new element can only be inserted at the top of the stack by using `push()` method:  
+```cpp
+#include <stack>
+#include <iostream>
+
+int main()
+{
+	stack<int> st;
+	
+	st.push(10);
+	st.push(37);
+	st.push(1337);
+	st.push(-42);
+}
+```
+
+
+##### Accessing Element of stack
+Only element at the top of the stack can be accessed using `pop()` method :  
+```cpp
+#include <stack>
+#include <iostream>
+
+int main()
+{
+	stack<int> st;
+	
+	st.push(1337);
+	st.push(10);
+	st.push(13);
+	
+	std::cout << st.top();
+}
+```
+
+
+##### Deleting Elements
+We have the ability to the delete only the element at the top of the stack and we use the method `pop()`;  
+```cpp
+#include <stack>
+#include <iostream>
+
+int main()
+{
+	std::stack<int>  st;
+	st.push(10);
+	st.push(1337);
+	std::cout << st.top() << ' '; 
+	st.pop();
+	std::cout << st.top();
+}
+```
+Output is : `1337 10`;
+
 
 # Iterators
 ## Definition
