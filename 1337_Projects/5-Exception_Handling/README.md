@@ -31,7 +31,7 @@ The output :
 	<img  src="../assets/terminate.png" width=700>
 </p>
 
-In C++ when using `throw` and nobody `catch` it, the program calls `std::terminate` which crashes the program.  
+In C++ when using `throw` and there is no `catch` , the program calls `std::terminate` which crashes the program.  
 
 ## Handling with exception
 ```CPP
@@ -162,7 +162,7 @@ Why we use exactly that prototype for `what()`  method :
 ### How it works
 
 When you throw an exception:
-1. **Destroy** all local objects in the current function (calls their destructors)
+1. **Destroy** all local objects in the current function (calls their destructor)
 2. **Exit** the current function
 3. **Repeat** in the calling function
 4. **Continue** until a `catch` block is found
@@ -259,4 +259,4 @@ catch (const std::runtime_error& e)
 }
 ```
 
-**Important:** Destructors should NEVER throw exceptions during unwinding, or the program will terminate.
+**Important:** Destructor  should NEVER throw exceptions during unwinding, or the program will terminate.

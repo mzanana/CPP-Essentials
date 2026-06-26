@@ -3,7 +3,7 @@
 # Definition & Problematic 
 ## Problematic
 The best way to understand a new concept is by defining the problem that it solves, lets make an example to visualize the problem template fix!  
-Lets implement a function the returns the maximum between two strings :  
+Lets implement a function that returns the maximum between two strings :  
 ```cpp
 std::string max(const std::string& first, const std::string& second)
 {
@@ -66,7 +66,7 @@ This is exactly the example we used before to understand the concept of the temp
 
 ## Class template
 
-Class template are useful when class define something that is independent of the data type, some of the example the class template could helps LinkedList, Stack, Queue, Array, etc.   
+Class template are useful when it define something independent of the data type, some of the example the class template could helps LinkedList, Stack, Queue, Array, etc.   
 
 **Simple example** 
 ```cpp

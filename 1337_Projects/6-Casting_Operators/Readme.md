@@ -64,13 +64,13 @@ There is no run-time safety because every checks happens on the compile time.
 static_cast<newType> (source);
 ```
 
-It is like the C-style casting, but the static_cast is stricter and safer, on the C-style cast the compiler tries to apply each possible C++ casts until one works, in a specific order :  
+It is like the C-style casting, but the **static_cast** is stricter and safer, on the C-style cast the compiler tries to apply each possible C++ casts until one works, in a specific order :  
 + `const_cast`;  
 + `static_cast`;  
 + `static_cast` followed by `const_cast`;  
 + ...etc
 
-The `static_cast` is safer and stricter because it remove the ability to do dangerous stuff like turning integer into pointer (reinterpret_cast) or removing the constness (const_cast).  
+The `static_cast` is safer and stricter because it remove the ability to do dangerous stuff like turning integer into pointer (reinterpret_cast) or removing the consteness (const_cast).  
 
 **Example**  
 ```cpp
@@ -155,7 +155,7 @@ int main()
 ```
 
 ### Dynamic cast
-Not like the static_cast, the **dynamic_cast** operator convert data from one type to another type at **runtime** not compiletime, the main case when we need the dynamic casting in inherited class for safely casting the base class pointer or reference to derived class which called the **downcasting**.  
+Not like the static_cast, the **dynamic_cast** operator convert data from one type to another type at **runtime** not compile time, the main case we use dynamic casting is inherited class for safely casting the base class pointer or reference to derived class which called the **downcasting**.  
 To work with dynamic casting we need at least one virtual function in the base class.  
 
 **Syntax**  
