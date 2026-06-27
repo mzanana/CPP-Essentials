@@ -27,19 +27,21 @@ Think of a container as a digital box that hold and organize data.
 
 ## Types of Containers
 There are 4 types of containers.
-### Sequence Containers
+### 1- Sequence Containers
 Sequence containers implement **linear** data structures in which the elements can be accessed sequentially.  
 There are only **5** standard sequence containers in the modern C++ STL, we have `std::array`, `std::vector`, `std::list`, `std::forward_list` and `std::deque`.
 #### std::vector
 Vector is a class in C++ provided as a class template within the Standard Template Library, it represents a dynamic sized array that automatically grows or shrinks in size as we add or remove elements on it.  
 All the elements of the vector are stored right next to each other in memory just like a raw C-Array. 
+
 **Syntax :**  
 ```cpp
 #include <vector>
 
 std::vector<datatype> name(size, init_with);
 ```
-So for example if we want to create int array of size 10 initialized with value 1337, we just need to the next syntax :  
+
+So for example if we want to create integer array of size 10 all initialized with value 1337, we just need to the next syntax :  
 ```cpp
 std::vector<int> ve1(10, 1337);
 ```
@@ -55,7 +57,7 @@ We have two ways to insert elements into the **vector** :
 
 To erase elements from the vector we have two cases:  
 + For the element at the end of the vector we use `vec.pop_back()`;
-+ For element at index i we use the method `vec.erase()` which takes the iterator of the element we wanna erase.  
++ For element at index `i` we use the method `vec.erase()` which takes the iterator of the element we wanna erase.  
 
 Also we can have the size of the vector directly using the method `vec.size()`  
 ```cpp
@@ -82,7 +84,7 @@ The output is :  `12`
 And to visualize it, it goes by those steps : `13    137    1237   123    12`
 
 For insert() there is three **overloaded** methods :  
-1. `iterator insert(iterator pos, const T& value);` Insert single element at position 
+1. `iterator insert(iterator pos, const T& value);` Insert single element at position  
 
 2. `void insert(iterator pos, size_type n, const T& value);` Insert n copies of value at position
 
@@ -90,7 +92,8 @@ For insert() there is three **overloaded** methods :
 
 
 ##### Access Elements
-We have two options to access elements of a vector, the first one is direct access `vec[i]`, and the second way is **bounds-checked** access which throw exception if the index is out of range, its syntax is `vec.at(i)`;  
+We have two options to access elements of a vector, the first one is direct access `vec[i]`, and the second way is **bounds-checked** access which throw exception if the index is out of range.  
+Bounds-checked access syntax:  `vec.at(i)`;  
 ```cpp
 #include <iostream>
 #include <vector>
@@ -111,38 +114,45 @@ And to check the vector if its empty we simply use `vec.empty()`, it returns tru
 ```cpp
 int main()
 {
-	std::vector<int> vec = {1, 3, 4, 7};
+	std::vector<int> vec = {4, 3, 3, 7};
 	
-	vec[2] = 3;
-	for (int i = 0; i < vec.size(); i++)
-		std::cout << vec[i];
+	if (v2c.empty())
+		std::cout << "The vector is empty!";
+	else
+	{
+		vec[0] = 1;
+		for (int i = 0; i < vec.size(); i++)
+			std::cout << vec[i];
+	}
+	
 }
 ```
 Output is `1337`  
 
-### Associative Containers
+### 2- Associative Containers
 Associative Containers store data in some sorted order and provides fast search, insert and delete in O(log n), we have four types of Associative Containers and they are :  
 + **Set :** Collection of unique elements stored by their values;  
 + **Multiset :** Collection of elements sorted on the basis of their value but allows multiple copies of values;  
 + **Map :** Collection of key-value pairs stored on the basis of the keys where the keys are primary and unique;  
 + **Multimap :** Collection of key-value where pairs can have same keys.  
 
-### Unordered Associative Containers
-UAC implement unsorted hashed data structures that can be quickly searched.  
+### 3- Unordered Associative Containers
+Implement unsorted hashed data structures that can be quickly searched.  
 + **Unordered Set :** Collection of unique elements hashed by their values;  
 + **Unordered Multiset :** Collection of elements hashed by their values and allows multiple copies of values;  
 + **Unordered Map :** Collection of key-value pairs that are hashed by their keys where no two pairs have same keys;  
 + **Unordered Multimap :** Collection of key-value pairs that are hashed by their keys where multiple pairs can have same keys.  
 
-### Container Adapters
+### 4- Container Adapters
 **Stack :** Adapts a container to provide stack (LIFO) data structure;  
 **Queue :** Adapt a container to provide queue (FIFO) data structure;  
 **Priority Queue :** Adapt a container to provide heap data structure.  
 #### std::stack()
 **Stack** container follows LIFO order of insertion and deletion, that mean the last added element on stack the first one we able to remove, and the first element we add is the last one we can remove, we have only one place to play with and its the head of the stack, called also the **top** of the stack.  
+And always remember at the stack : push, top and pop.  
 
 **Syntax :**  
-`stack<T> sta;` with `T` is the DataType of the stack elements and `sta` the name of the stack container.  
+`stack<T> sta;` with `T` is the data type.  
 
 ##### Inserting Elements in stack
 In stack, new element can only be inserted at the top of the stack by using `push()` method:  
@@ -220,7 +230,7 @@ int main()
 ```
 
 ## For Each vs Iterator
-The best practice is using iterators when editing on the elements, and for each loop just for printing the elements; 
+`Iterator` when updating the elements, `for each`  for printing the elements;   
 ```cpp
 int main()
 {
@@ -236,8 +246,8 @@ int main()
 
 ## begin() and end() methods
 `begin()` and `end()` are methods belong to the containers and not the iterator itself.  
-+ **`begin()`** returns an iterator that point to the first element of the container;  
-+ **`end()`** returns an iterator that point to the end of the container not the last element, if we want to use the last element of the container we use `ve.end() - 1`.  
++ **`begin()`** returns an iterator point to the first element of the container;  
++ **`end()`** returns an iterator point to the end of the container not the last element, if we want to use the last element of the container we use `ve.end() - 1`.  
 
 Here is the list of all the other methods that returns iterator to the containers :  
 <p align="center">
@@ -265,15 +275,14 @@ int main()
 Output is :  `1 5 4`;
 
 # Algorithms
-Algorithms are used to solve problems by **sorting**, **searching** and **manipulating** data structures.  
+Algorithms are used to solve problems of **sorting**, **searching** and **manipulating** data structures.  
 The header `#inlude <algorithm>` is necessary to use them.   
 We can divide the algorithms into **four** parts :  
 ## Searching Algorithms
 
 ### Definition 
-Searching algorithms are used to **find** a specific element  or information in a data structure like as array, vector or list.  
+Searching algorithms are used to **find** a specific element or information in a data structure in the array, vector or list.  
 
-### Example of algorithms
 #### find()
 The find function takes three parameters : `start_iterator`, `end_iterator` and `value` to search for, and it returns an iterator to the specific element if found or to `.end()` iterator if not found.   
 **syntax :**
@@ -294,7 +303,6 @@ else
 ### Definition
 To store the elements in a container or array we use sorting algorithms.
 
-### Example of sorting algorithms
 #### sort()
 sort() function take two parameters, the iterator to start sorting and the iterator to stop, its default sort is ascending order.  
 **Syntax :**  
