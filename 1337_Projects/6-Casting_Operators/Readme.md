@@ -125,8 +125,8 @@ int main()
 	std::cout << *x << std::endl;
 	std::cout << *ch << std::endl;
 
-	std::cout << p << std::endl;
 	std::cout << x << std::endl;
+	std::cout << ch << std::endl;
 }
 ```
 
