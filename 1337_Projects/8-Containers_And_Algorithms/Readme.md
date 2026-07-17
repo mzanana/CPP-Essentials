@@ -25,12 +25,12 @@ Think of a container as a digital box that hold and organize data.
 + It does not hold just one item, it hold a set or a sequence of object;  
 + It handle the memory cleanup by using a garbage collector.  
 
-## Types of Containers
+# Types of Containers
 There are 4 types of containers.
-### 1- Sequence Containers
+## 1- Sequence Containers
 Sequence containers implement **linear** data structures in which the elements can be accessed sequentially.  
 There are only **5** standard sequence containers in the modern C++ STL, we have `std::array`, `std::vector`, `std::list`, `std::forward_list` and `std::deque`.
-#### std::vector
+### std::vector
 Vector is a class in C++ provided as a class template within the Standard Template Library, it represents a dynamic sized array that automatically grows or shrinks in size as we add or remove elements on it.  
 All the elements of the vector are stored right next to each other in memory just like a raw C-Array. 
 
@@ -50,7 +50,7 @@ Or we can use the second manual way :
 std::vector<int> ve2 = {1337, 1337, ..., 1337} // `1337` 10 times
 ```
 
-##### Insert, Erase Element and Size of vector
+#### Insert, Erase Element and Size of vector
 We have two ways to insert elements into the **vector** :  
 + `push_back(value)` to insert the `value` to the end of the vector, notice that we don't have any `push_front()` or `add_back()` or anything like this, we have only `push_back`;  
 + `insert(position, value)` it's the second way to insert element at any position we want on the vector, it takes `O(n)` as it shifts elements to make space.  
@@ -91,7 +91,7 @@ For insert() there is three **overloaded** methods :
 3. `template<typename InputIterator> void insert(iterator pos, InputIterator first, InputIterator last);` Insert range [first, last] at position
 
 
-##### Access Elements
+#### Access Elements
 We have two options to access elements of a vector, the first one is direct access `vec[i]`, and the second way is **bounds-checked** access which throw exception if the index is out of range.  
 Bounds-checked access syntax:  `vec.at(i)`;  
 ```cpp
@@ -108,7 +108,7 @@ int main()
 ```
 Output is : `13 37`  
 
-##### Update Element and Empty Check
+#### Update Element and Empty Check
 Just like C-arrays we use the index of the element we wanna update directly. 
 And to check the vector if its empty we simply use `vec.empty()`, it returns true if its empty and false if there is elements at the vector.  
 ```cpp
@@ -129,25 +129,44 @@ int main()
 ```
 Output is `1337`  
 
-### 2- Associative Containers
+## 2- Associative Containers
 Associative Containers store data in some sorted order and provides fast search, insert and delete in O(log n), we have four types of Associative Containers and they are :  
 + **Set :** Collection of unique elements stored by their values;  
 + **Multiset :** Collection of elements sorted on the basis of their value but allows multiple copies of values;  
 + **Map :** Collection of key-value pairs stored on the basis of the keys where the keys are primary and unique;  
 + **Multimap :** Collection of key-value where pairs can have same keys.  
 
-### 3- Unordered Associative Containers
+### std::map()   
+**Problem Solved :**  
+The map() solve a big problem in programming which is the **fast data retrieval using a custom key**, to visualize the problem lets give an example of a vector of strings `name`, if we want `mzanana` we should look the entire vector by numeric indexes 0, 1, 2, etc. Seeing if the name exist or not, which is `O(N)`.     
+
+**What we want ?**  
+In the real world we need to look up data using meaningful identifiers like email address or id number, etc.   
+
+**Map**   
+The maps solve all those problems by linking a  **key** to a **value** allowing us to retrieve the value almost instantly.   
+Maps are associative containers that store key-value pairs in sorted order using a self-balancing.  
+It is efficient `O(lon`
+**Syntax :**   `std::map`   
+
+`std::map` keep all the key-value pairs **strictly** sorted based on the key, if we iterate through the map of names they will come out in alphabetical order.   
+
+
+
+
+
+## 3- Unordered Associative Containers
 Implement unsorted hashed data structures that can be quickly searched.  
 + **Unordered Set :** Collection of unique elements hashed by their values;  
 + **Unordered Multiset :** Collection of elements hashed by their values and allows multiple copies of values;  
 + **Unordered Map :** Collection of key-value pairs that are hashed by their keys where no two pairs have same keys;  
 + **Unordered Multimap :** Collection of key-value pairs that are hashed by their keys where multiple pairs can have same keys.  
 
-### 4- Container Adapters
+## 4- Container Adapters
 **Stack :** Adapts a container to provide stack (LIFO) data structure;  
 **Queue :** Adapt a container to provide queue (FIFO) data structure;  
 **Priority Queue :** Adapt a container to provide heap data structure.  
-#### std::stack()
+### std::stack()
 **Stack** container follows LIFO order of insertion and deletion, that mean the last added element on stack the first one we able to remove, and the first element we add is the last one we can remove, we have only one place to play with and its the head of the stack, called also the **top** of the stack.  
 And always remember at the stack : push, top and pop.  
 
