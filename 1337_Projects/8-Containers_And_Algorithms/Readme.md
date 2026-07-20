@@ -137,23 +137,76 @@ Associative Containers store data in some sorted order and provides fast search,
 + **Multimap :** Collection of key-value where pairs can have same keys.  
 
 ### std::map()   
-**Problem Solved :**  
-The map() solve a big problem in programming which is the **fast data retrieval using a custom key**, to visualize the problem lets give an example of a vector of strings `name`, if we want `mzanana` we should look the entire vector by numeric indexes 0, 1, 2, etc. Seeing if the name exist or not, which is `O(N)`.     
+#### Problem Solved :  
+Fast data retrieval using a **custom** key is the major problem the `std::map` solves, to visualize the problem, lets give an example of a vector of strings `name`, if we want to retrieve `mzanana` we should look the entire vector by numeric indexes 0, 1, 2, etc. Seeing if the name exist or not, which is `O(N)`.     
 
-**What we want ?**  
-In the real world we need to look up data using meaningful identifiers like email address or id number, etc.   
+#### What we want ?  
+In the real world we need to look up data using **meaningful** identifiers like email address, id number, etc.   
 
-**Map**   
-The maps solve all those problems by linking a  **key** to a **value** allowing us to retrieve the value almost instantly.   
-Maps are associative containers that store key-value pairs in sorted order using a self-balancing.  
-It is efficient `O(lon`
+#### Definition  
+`std::map`  solve all those problems by linking a  **key** to a **value** allowing us to retrieve the value almost instantly.   
+Maps are **associative containers** that store key-value pairs in sorted order using a self-balancing, providing `O(log n)` time complexity for insertion, deletion and searching operations.    
+
 **Syntax :**   `std::map`   
 
-`std::map` keep all the key-value pairs **strictly** sorted based on the key, if we iterate through the map of names they will come out in alphabetical order.   
+`std::map` keep all the key-value pairs strictly **sorted** based on the key, if we iterate through the map of key type of string like `std::string names` , they will come out in alphabetical order.   
 
 
+#### Basic Operations
+```C++
+#include <iostream>
+#include <map>
 
+int main()
+{
+	// Creating map
+	map<int, string> person;
+	
+	// Initializing map
+	map<int, string> city = {{80100, "AGADIR"}, {40010, "MARRAKECH"}};
+	
+	// Inserting element
+	person.insert({139849273, "ZANANA"});
+	
+	//Accessing element
+	std::cout << person[139849273] << endl;  // output is : ZANANA
+	std::cout << city.at(80100) << endl; // output is : AGADIR
+	
+	// Updating Value
+	city.at(40010) = "SevenMen";
+	person[139849273] = "Heisenberg";
+	
+	// Finding Element
+	person.find(1337); // if element not found find() returns end()
+}
+```
 
+#### first & second
+`std::map` uses another standard library called `std::pair` behind the scenes. When accessing an element in the map we are interacting with the `std::pair` where the `first` and `second` come in, where :  
++ **first**: refer to the Key;  
++ **second**: refer to the value.  
+
+**Example:**  
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+int main()
+{
+	std::map<std::string, int> age;
+	
+	age[mohamed] = 25;
+	age[soufiane] = 21;
+	
+	std::map<std::string, int>::iterator it;
+	
+	for (it = age.begin(), it != age.end(), it++)
+	{
+		std::cout << it->first << " is " << it->second << " years old.\n";
+	}
+}
+```
 
 ## 3- Unordered Associative Containers
 Implement unsorted hashed data structures that can be quickly searched.  
