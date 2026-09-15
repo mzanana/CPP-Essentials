@@ -49,7 +49,7 @@ void	BitcoinExchange::DatabaseLoader(const std::string& filename)
 		stream >> number;
 		if (stream.fail())
 		{
-			std::cout << "Error: Could not read the data.csv successfully!" << std::endl;
+			std::cerr << "Error: Could not read the data.csv successfully!" << std::endl;
 			return;
 		}
 		stream.clear();
@@ -131,19 +131,19 @@ void	BitcoinExchange::EvaluateInput(const std::string& filename)
 
 		if (pipe == std::string::npos || !IsValidDate(date) || !IsValidValue(line.substr(pipe + 3), value))
 		{
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 		if (value < 0)
-			std::cout << "Error: not a positive number." << std::endl;
+			std::cerr << "Error: not a positive number." << std::endl;
 		else if (value > 1000)
-			std::cout << "Error: too large a number." << std::endl;
+			std::cerr << "Error: too large a number." << std::endl;
 		else
 		{
 			std::map<std::string, double>::iterator	it = data.upper_bound(date);
 
 			if (it == data.begin())
-				std::cout << "Error: no data before this date." << std::endl;
+				std::cerr << "Error: no data before this date." << std::endl;
 			else
 				std::cout << date << " => " << value << " = " << value * (--it)->second << std::endl;
 		}
