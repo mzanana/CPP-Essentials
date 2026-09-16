@@ -1,4 +1,60 @@
 #include "RPN.hpp"
+static int safeAdd(int left, int right)
+{
+    if (right > 0 && left > INT_MAX - right)
+        throw RPN::InvalidExpression();
+
+    if (right < 0 && left < INT_MIN - right)
+        throw RPN::InvalidExpression();
+
+    return left + right;
+}
+
+static int safeSub(int left, int right)
+{
+    if (right > 0 && left < INT_MIN + right)
+        throw RPN::InvalidExpression();
+
+    if (right < 0 && left > INT_MAX + right)
+        throw RPN::InvalidExpression();
+
+    return left - right;
+}
+
+static int safeMul(int left, int right)
+{
+    if (left == 0 || right == 0)
+        return 0;
+
+    if (left > 0)
+    {
+        if (right > 0 && left > INT_MAX / right)
+            throw RPN::InvalidExpression();
+
+        if (right < 0 && right < INT_MIN / left)
+            throw RPN::InvalidExpression();
+    }
+    else
+    {
+        if (right > 0 && left < INT_MIN / right)
+            throw RPN::InvalidExpression();
+
+        if (right < 0 && left < INT_MAX / right)
+            throw RPN::InvalidExpression();
+    }
+    return left * right;
+}
+
+static int safeDiv(int left, int right)
+{
+    if (right == 0)
+        throw RPN::InvalidExpression();
+
+    if (left == INT_MIN && right == -1)
+        throw RPN::InvalidExpression();
+
+    return left / right;
+}
 
 const char *RPN::InvalidExpression::what() const throw()
 {
@@ -33,6 +89,7 @@ int RPN::execute(const std::string& input)
 
 	while (iss >> token)
 	{
+		
 		if (token.size() != 1)
 			throw InvalidExpression();
 		if (isdigit(token[0]))
@@ -46,17 +103,13 @@ int RPN::execute(const std::string& input)
 			int left = stk.top();
 			stk.pop();
 			if (token[0] == '+')
-				stk.push(left + right);
+    			stk.push(safeAdd(left, right));
 			else if (token[0] == '-')
-				stk.push(left - right);
+    			stk.push(safeSub(left, right));
 			else if (token[0] == '*')
-				stk.push(left * right);
+    			stk.push(safeMul(left, right));
 			else if (token[0] == '/')
-			{
-				if (right == 0)
-					throw InvalidExpression();
-				stk.push(left / right);
-			}
+    			stk.push(safeDiv(left, right));
 		}
 	}
 	if (stk.size() != 1)
