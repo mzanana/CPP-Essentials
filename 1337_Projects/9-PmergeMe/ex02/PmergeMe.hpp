@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <iomanip>
 #include <ostream>
 #include <cstdlib>
 #include <cerrno>
@@ -15,10 +16,12 @@
 #include <cmath>
 #include <cctype>
 
+
+
 template <typename T>
 void ContainerPrinter(T& container)
 {
-    for(int i = 0; i < container.size(); i++)
+    for(size_t i = 0; i < container.size(); i++)
     {
         std::cout << container[i].value;
         if (i != container.size() - 1)
@@ -32,6 +35,12 @@ typedef struct s_VectFord
     int value;
     std::vector<s_VectFord> losers;
     s_VectFord(int value): value(value), losers(){}
+	s_VectFord& operator=(const s_VectFord& other)
+	{
+    	value = other.value;
+    	losers = other.losers;
+    	return *this;
+	}
 } VectFord;
 
 typedef struct s_DeqFord
