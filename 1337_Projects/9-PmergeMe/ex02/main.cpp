@@ -9,13 +9,9 @@ bool parseInput(int ac, char**av, std::vector<VectFord>& vect, std::deque<DeqFor
     {
         std::istringstream iss(av[i]);
         std::string token;
-        
-		bool foundSomething = false;
 
         while (iss >> token)
         {
-            foundSomething = true;
-
             for (std::size_t j = 0; j < token.size(); ++j)
             {
                 if (!std::isdigit(token[j]))
@@ -32,9 +28,6 @@ bool parseInput(int ac, char**av, std::vector<VectFord>& vect, std::deque<DeqFor
             vect.push_back(static_cast<int>(value));
             deq.push_back(static_cast<int>(value));
         }
-
-        if (!foundSomething)
-            return false;
     }
 
     return true;
@@ -47,6 +40,7 @@ long long getTime()
 	gettimeofday(&tv, 0);
 	return (static_cast<long long>(tv.tv_sec) * 1000000LL + static_cast<long long>(tv.tv_usec));
 }
+
 
 int main(int ac, char** av)
 
@@ -72,21 +66,15 @@ int main(int ac, char** av)
 		long long start = getTime();
 		FordJohnsonVector(vec);
 		long long end = getTime();
-		double vectorTime = static_cast<double>(end - start);
-		std::cout << "After: ";
+		std::cout << "\n\n\nAfter: ";
 		ContainerPrinter(vec);
+		std::cout << "\nTime to process the full range of elements with std::vector : -------> " << end - start << " us\n\n***************************************************************************\n";
 	}
 
 	{
-		std::cout << "Before: ";
-		ContainerPrinter(deq);
-
 		long long start = getTime();
 		FordJohnsonDeque(deq);
 		long long end = getTime();
-		long long howLong = static_cast<double>(end - start);
-		std::cout << "After: ";
-		ContainerPrinter(deq);
-		std::cout << "Time to process the full range of elements with std::deque : " << howLong << " us\n";
+		std::cout << "\nTime to process the full range of  elements with std::deque  : --------> " << end - start << " us\n";
 	}
 }
